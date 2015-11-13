@@ -13,8 +13,6 @@ public abstract class Letter implements Comparable <Letter>{
 	protected double cost;
 	public City city;
 	
-	public abstract void createLetter();
-	
 	/**
 	 * Set new cost of a letter
 	 * @param cost  the new cost setting

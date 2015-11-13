@@ -1,32 +1,10 @@
-package model.content;
-
+package content;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Interface defining the type of content of the letter
  */
-public  interface Content 
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public getContent() ;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public setContent() ;
-	
-	
+public  interface Content {
+
 }
 

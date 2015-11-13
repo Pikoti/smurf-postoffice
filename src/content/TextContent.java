@@ -1,94 +1,31 @@
-package model.content;
-import model.letter.PromisseryNote;
-import model.letter.SimpleLetter;
-
+package content;
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am a text content for a letter
  */
 
-public class TextContent implements Content
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+public class TextContent implements Content {
 	
-	protected String content;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public SimpleLetter simpleLetter;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public PromisseryNote promisseryNote;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public TextContent(){
-		super();
-	}
+	protected String text;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void setContent() {
-		// TODO implement me	
+	public TextContent (String text) {
+		this.text = text;
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void getContent() {
-		// TODO implement me	
+	 * Get the text content of the letter
+	 * @return content 
+	 */	
+	public String getContent() {
+		return text;	
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void getContent() {
-		// TODO implement me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void setContent() {
-		// TODO implement me	
+	 * Set text content of the letter
+	 * @param text the content text of the letter
+	 */	
+	public void setContent(String text) {
+		this.text = text;	
 	}
 	
 }

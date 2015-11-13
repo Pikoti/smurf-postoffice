@@ -1,65 +1,20 @@
-package model.letter;
-import model.content.TextContent;
-import model.city.Inhabitant;
-import model.content.Content;
+package letter;
+import content.TextContent;
+import city.Inhabitant;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am a simple letter with text
  */
 
-public class SimpleLetter extends Letter
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+public class SimpleLetter extends Letter {
 	
 	protected TextContent content;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Content content2;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public SimpleLetter(){
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
 		super();
+		TextContent content= new TextContent(text); 
+		this.content = content;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void createLetter(Inhabitant sender, Inhabitant receiver, TextContent content) {
-		// TODO implement me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void setCost() {
-		// TODO implement me	
-	}
-	
 }
 

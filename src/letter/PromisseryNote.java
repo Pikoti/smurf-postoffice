@@ -20,7 +20,7 @@ public class PromisseryNote extends LetterWithAnswer
 	 * @ordered
 	 */
 	
-	protected FloatContent content;
+	protected DoubleContent content;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class PromisseryNote extends LetterWithAnswer
 	 * @ordered
 	 */
 	
-	public void createLetter(Inhabitant sender, Inhabitant receiver, FloatContent content) {
+	public void createLetter(Inhabitant sender, Inhabitant receiver, DoubleContent content) {
 		// TODO implement me	
 	}
 	
