@@ -7,8 +7,7 @@ import letter.Letter;
  * I am representing an inhabitant living in a city
  */
 
-public class Inhabitant
-{
+public class Inhabitant {
 	
 	protected String name;
 	protected Account account;

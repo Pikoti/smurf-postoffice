@@ -19,8 +19,7 @@ public class City
 	protected int capacity;
 	protected List<Letter> lettersCollected;
 	protected List<Letter> urgentLettersCollected;
-	
-	
+		
 	public City(String name,int capacity) {
 		this.name = name;
 		this.capacity = capacity;

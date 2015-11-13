@@ -39,7 +39,7 @@ public abstract class Letter implements Comparable <Letter>{
 		if (this.isUrgent()) {
 			sender.getCity().geturgentLettersCollected().add(this);
 		} else {
-			sender.getCity().geturgentLettersCollected().add(this);
+			sender.getCity().getlettersCollected().add(this);
 		}
 	}
 	
@@ -65,12 +65,10 @@ public abstract class Letter implements Comparable <Letter>{
 	 * */
 	public void createAnswer() {}
 	
-
 	/**
 	 * Send created answer to be sent by receiver (by default do nothing)
 	 * */
 	public void sendAnswer() {}
-	
 	
 	/**
 	 * Compare lexicographically 2 letters for sorting
@@ -81,6 +79,5 @@ public abstract class Letter implements Comparable <Letter>{
 	public int compareTo(Letter letter) {
 		return this.receiver.getName().compareTo(letter.receiver.getName());
 	}
-	
 }
 

@@ -22,7 +22,7 @@ public class Postbox {
 	 * @return lettersToBeDistributed
 	 */
 	protected List<Letter> getPostbox() {
-		lettersToBeDistributed.sort();
+		Collections.sort(lettersToBeDistributed);
 		return lettersToBeDistributed;
 	}
 	
