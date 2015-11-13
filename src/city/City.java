@@ -1,110 +1,65 @@
 package city;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.ListIterator;
+
 import letter.Letter;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am a city of inhabitants
  */
 
 public class City
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	protected String name;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected List<Inhabitant> inhabitants;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected Postbox postbox;
+	protected int capacity;
+	protected List<Letter> lettersCollected;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	protected List<Letter> lettersToBePosted;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Set<Inhabitant> inhabitant2;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Postbox postbox2;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Set<Letter> letter2;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public City(){
-		super();
+	public City(String name,int capacity) {
+		this.name = name;
+		this.capacity = capacity;
+		this.inhabitants = new ArrayList<Inhabitant>();
+		this.lettersCollected = new ArrayList<Letter>();
+		this.postbox = new Postbox();
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
+	/**
+	 * Distribute the letters of the postBox to the inhabitants
+	 * */
 	public void distributeLetter() {
-		// TODO implement me	
+		for (Letter letter: postbox.getPostbox()) {
+			letter.postLetter();
+			letter.createAnswer();
+			letter.sendAnswer();
+		}
+		postbox.getPostbox().clear();
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * sort the urgent, add to postbox
+	 * count urgent letters
+	 * add all urgent
+	 * add capacity-cu to postbox
+	 * if cu > capacity?
+	 * 
+	 * 2 listes urgentes et non  urgentes
+	 * */
+	
+	
+	/**
+	 * Set the postbox of the day from the collected letters
+	 * add number of letter to new post box
 	 */
 	
 	public void sendLetter() {
-		// TODO implement me	
+		postbox.setDailyPostbox(lettersCollected.subList(0,nbUrgent));
+		postbox.setDailyPostbox(lettersCollected.subList(0,capacity));
+		lettersCollected.subList(0,capacity).clear();
 	}
 	
 }

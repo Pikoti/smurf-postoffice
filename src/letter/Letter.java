@@ -1,6 +1,5 @@
-package model.letter;
-import model.city.Inhabitant;
-import model.city.City;
+package letter;
+import city.*;
 
 
 /**
@@ -87,7 +86,7 @@ public abstract class Letter
 	
 	public float getCost() {
 		// TODO implement me
-		return 0.0;	
+		return 0.0f;	
 	}
 	
 	/**
@@ -97,7 +96,7 @@ public abstract class Letter
 	 * @ordered
 	 */
 	
-	public void postLetter(City city) {
+	public void postLetter() {
 		// TODO implement me	
 	}
 	
@@ -119,10 +118,15 @@ public abstract class Letter
 	 * @generated
 	 * @ordered
 	 */
-	
+
 	public boolean isRegisterLetter() {
 		// TODO implement me
 		return false;	
+	}
+
+	public void createAnswer() {
+	}
+	public void sendAnswer() {
 	}
 	
 }

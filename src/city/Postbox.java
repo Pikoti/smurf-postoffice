@@ -1,52 +1,41 @@
 package city;
+import java.util.ArrayList;
+import java.util.List;
 import letter.Letter;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am a postbox in a city my letters are to be distributed
  */
 
-public class Postbox
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+public class Postbox {
+
+	protected List<Letter> lettersToBeDistributed;
 	
-	protected Map<Inhabitant,List<Letter>> lettersToBeDistributed;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public City city;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public Postbox(){
-		super();
+	public Postbox() {
+		lettersToBeDistributed = new ArrayList<Letter>();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * Get the list of letters to be posted
+	 * @return lettersToBeDistributed
 	 */
-	
-	public void setLetters(Letter letter) {
-		// TODO implement me	
+	protected List<Letter> getPostbox() {
+		return lettersToBeDistributed;
 	}
 	
+	/**
+	 * Set the day list of letters to be posted
+	 */
+	protected void setDailyPostbox(List<Letter> lettersOfDay) {
+		lettersToBeDistributed.addAll(lettersOfDay);
+	}
+	
+	/**
+	 * sort by inhabitant
+	 * */
+	protected void sort() {
+		
+	}
 }
 

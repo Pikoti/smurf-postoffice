@@ -2,74 +2,47 @@ package city;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am a bank account of an inhabitant
  */
 
 public class Account
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected float amount;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Inhabitant inhabitant;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public Account(){
-		super();
+
+	protected double amount;
+
+	public Account() {
+		this.amount = 0;
 	}
+	public Account(double amount) {
+		this.amount = amount;
+	}
+	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * Subtract money from <code>this<code> account
+	 * @param profit to subtract from amount
+	 * @return final amount of <code>this<code> account
 	 */
-	
-	public float debit() {
-		// TODO implement me
-		return 0.0;	
+	public double debit(double cost) {
+		return amount -= cost;	
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * Add money to <code>this<code> account
+	 * @param profit to add to amount
+	 * @return final amount of <code>this<code> account
 	 */
 	
-	public float credit() {
-		// TODO implement me
-		return 0.0;	
+	public double credit(double profit) {
+		return amount += profit;	
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * get amount of <code>this<code> account
+	 * @return final amount of <code>this<code> account
 	 */
-	
-	public float balanced() {
-		// TODO implement me
-		return 0.0;	
+	public double balanced() {
+		return amount;	
 	}
 	
 }

@@ -1,87 +1,41 @@
 package city;
 
+import letter.Letter;
+
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am representing an inhabitant living in a city
  */
 
 public class Inhabitant
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	protected String name;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected Account account;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected City city;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	protected int numberOfLetterSent;
+
+	public Inhabitant(String name, Account account, City city) {
+		this.name = name;
+		this.account = new Account();
+		this.city = city;
+	}
+
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public City city2;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Account account2;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public Inhabitant(){
-		super();
+	 * Get name of <code>this<code> inhabitant
+	 * @return name of <code>this<code> inhabitant
+	 * */
+	public String name() {
+		return name;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void payLetter() {
-		// TODO implement me	
+	 * Pay for a letter
+	 * @param letter to pay
+	 * */
+	public void payLetter(Letter letter) {		
+		 account.debit(letter.getCost());
 	}
-	
 }
 
