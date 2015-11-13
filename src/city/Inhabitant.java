@@ -30,6 +30,30 @@ public class Inhabitant
 	}
 
 	/**
+	 * Get account of <code>this<code> inhabitant
+	 * @return account of <code>this<code> inhabitant
+	 * */
+	public Account getAccount() {
+		return account;
+	}
+	
+	/**
+	 * Get name of <code>this<code> inhabitant
+	 * @return name of <code>this<code> inhabitant
+	 * */
+	public String getName() {
+		return name;
+	}
+	
+	/**
+	 * Get city of <code>this<code> inhabitant
+	 * @return city of <code>this<code> inhabitant
+	 * */
+	public City getCity() {
+		return city;
+	}
+
+	/**
 	 * Pay for a letter
 	 * @param letter to pay
 	 * */

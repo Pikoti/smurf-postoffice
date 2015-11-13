@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import letter.Letter;
+import letter.NotEnoughMoneyException;
 
 
 /**
@@ -17,7 +18,7 @@ public class City
 	protected Postbox postbox;
 	protected int capacity;
 	protected List<Letter> lettersCollected;
-	protected List<Letter> urgentLetters;
+	protected List<Letter> urgentLettersCollected;
 	
 	
 	public City(String name,int capacity) {
@@ -26,6 +27,22 @@ public class City
 		this.inhabitants = new ArrayList<Inhabitant>();
 		this.lettersCollected = new ArrayList<Letter>();
 		this.postbox = new Postbox();
+	}
+
+	/**
+	 * Get lettersCollected of the city
+	 * @return lettersCollected of the city
+	 * */
+	public List<Letter> getlettersCollected() {
+		return lettersCollected;
+	}
+
+	/**
+	 * Get urgentlettersCollected of the city
+	 * @return urgentlettersCollected of the city
+	 * */
+	public List<Letter> geturgentLettersCollected() {
+		return urgentLettersCollected;
 	}
 	
 	/**
@@ -45,9 +62,9 @@ public class City
 	 * add number of letter to new post box
 	 */
 	public void sendLetter() {
-		postbox.setDailyPostbox(urgentLetters);
+		postbox.setDailyPostbox(urgentLettersCollected);
 		postbox.setDailyPostbox(lettersCollected.subList(0,capacity));
-		urgentLetters.clear();
+		urgentLettersCollected.clear();
 		lettersCollected.subList(0,capacity).clear();
 	}
 }
