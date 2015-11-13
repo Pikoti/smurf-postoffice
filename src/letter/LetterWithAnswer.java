@@ -1,4 +1,6 @@
-package model.letter;
+package letter;
+
+import city.Inhabitant;
 
 
 /**
@@ -14,8 +16,8 @@ public abstract class LetterWithAnswer extends Letter
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public LetterWithAnswer(){
-		super();
+	public LetterWithAnswer(Inhabitant sender, Inhabitant receiver){
+		super(sender, receiver);
 	}
 
 	/**

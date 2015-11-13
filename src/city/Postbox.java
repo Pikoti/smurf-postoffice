@@ -1,6 +1,7 @@
 package city;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import letter.Letter;
 
@@ -21,9 +22,13 @@ public class Postbox {
 	 * Get the sorted list of letters to be posted
 	 * @return lettersToBeDistributed
 	 */
-	protected List<Letter> getPostbox() {
-		Collections.sort(lettersToBeDistributed);
-		return lettersToBeDistributed;
+	protected Iterator<Letter> getPostboxIterator() {
+		//Collections.sort(lettersToBeDistributed);
+		return lettersToBeDistributed.iterator();
+	}
+	
+	public void clearLettersToBeDistributed() {
+		lettersToBeDistributed.clear();
 	}
 	
 	/**

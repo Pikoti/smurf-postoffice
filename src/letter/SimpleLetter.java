@@ -12,9 +12,13 @@ public class SimpleLetter extends Letter {
 	protected TextContent content;
 	
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
-		super();
+		super(sender, receiver);
 		TextContent content= new TextContent(text); 
 		this.content = content;
 	}
+	
+	public String getDescription () {
+		return "simple letter (" + content + ")";
+	} 
 }
 

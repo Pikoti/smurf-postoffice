@@ -1,5 +1,5 @@
-package model.letter;
-import model.city.Inhabitant;
+package letter;
+import city.*;
 
 
 /**
@@ -15,19 +15,12 @@ public class AcknowlegmentOfReceipt extends SimpleLetter
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public AcknowlegmentOfReceipt(){
-		super();
+	public AcknowlegmentOfReceipt(Inhabitant sender, Inhabitant receiver, String text){
+		super(sender, receiver, text);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public void createLetter(Inhabitant sender, Inhabitant receiver) {
-		// TODO implement me	
+	public String getDescription () {
+		return "acknowlegment of receipt";
 	}
 	
 }

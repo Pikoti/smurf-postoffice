@@ -21,6 +21,13 @@ public class TextContent implements Content {
 	}
 	
 	/**
+	 * @see getContent 
+	 */	
+	public String toString() {
+		return getContent();	
+	}
+	
+	/**
 	 * Set text content of the letter
 	 * @param text the content text of the letter
 	 */	

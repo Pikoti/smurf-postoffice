@@ -1,5 +1,5 @@
-package model.letter;
-import model.city.Inhabitant;
+package letter;
+import city.*;
 
 
 /**
@@ -15,20 +15,12 @@ public class ThanksLetter extends SimpleLetter
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public ThanksLetter(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void createLetter(Inhabitant sender, Inhabitant receiver) {
-		// TODO implement me	
+	public ThanksLetter(Inhabitant sender, Inhabitant receiver){
+		super(sender, receiver, "Thanks!");
 	}
 	
+	public String getDescription () {
+		return "thanks letter";
+	}
 }
 

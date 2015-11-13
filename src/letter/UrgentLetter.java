@@ -1,5 +1,6 @@
-package model.letter;
-import model.city.Inhabitant;
+package letter;
+
+import city.Inhabitant;
 
 
 /**
@@ -25,19 +26,8 @@ public class UrgentLetter extends Letter
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public UrgentLetter(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void createLetter(Inhabitant sender, Inhabitant receiver, Letter letter) {
-		// TODO implement me	
+	public UrgentLetter(Inhabitant sender, Inhabitant receiver){
+		super(sender, receiver);
 	}
 	
 	/**
@@ -63,5 +53,8 @@ public class UrgentLetter extends Letter
 		return false;	
 	}
 	
+	public String getDescription() {
+		return "urgent letter";	
+	}
 }
 

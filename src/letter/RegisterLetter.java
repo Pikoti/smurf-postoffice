@@ -1,5 +1,6 @@
-package model.letter;
-import model.city.Inhabitant;
+package letter;
+
+import city.Inhabitant;
 
 
 /**
@@ -25,19 +26,8 @@ public class RegisterLetter extends LetterWithAnswer
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public RegisterLetter(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void createLetter(Inhabitant sender, Inhabitant receiver, Letter letter) {
-		// TODO implement me	
+	public RegisterLetter(Inhabitant sender, Inhabitant receiver){
+		super(sender, receiver);
 	}
 	
 	/**
@@ -73,6 +63,10 @@ public class RegisterLetter extends LetterWithAnswer
 		// TODO implement me
 		return false;	
 	}
+	
+	public String getDescription () {
+		return "registered letter";
+	} 
 	
 }
 
