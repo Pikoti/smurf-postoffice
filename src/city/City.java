@@ -11,13 +11,13 @@ import letter.Letter;
  */
 
 public class City
-{
-	
+{	
 	protected String name;
 	protected List<Inhabitant> inhabitants;
 	protected Postbox postbox;
 	protected int capacity;
 	protected List<Letter> lettersCollected;
+	protected List<Letter> urgentLetters;
 	
 	
 	public City(String name,int capacity) {
@@ -41,26 +41,14 @@ public class City
 	}
 	
 	/**
-	 * sort the urgent, add to postbox
-	 * count urgent letters
-	 * add all urgent
-	 * add capacity-cu to postbox
-	 * if cu > capacity?
-	 * 
-	 * 2 listes urgentes et non  urgentes
-	 * */
-	
-	
-	/**
 	 * Set the postbox of the day from the collected letters
 	 * add number of letter to new post box
 	 */
-	
 	public void sendLetter() {
-		postbox.setDailyPostbox(lettersCollected.subList(0,nbUrgent));
+		postbox.setDailyPostbox(urgentLetters);
 		postbox.setDailyPostbox(lettersCollected.subList(0,capacity));
+		urgentLetters.clear();
 		lettersCollected.subList(0,capacity).clear();
 	}
-	
 }
 

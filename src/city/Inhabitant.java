@@ -20,7 +20,6 @@ public class Inhabitant
 		this.account = new Account();
 		this.city = city;
 	}
-
 	
 	/**
 	 * Get name of <code>this<code> inhabitant

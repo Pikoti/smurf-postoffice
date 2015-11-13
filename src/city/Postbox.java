@@ -1,5 +1,6 @@
 package city;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import letter.Letter;
 
@@ -17,25 +18,26 @@ public class Postbox {
 	}
 
 	/**
-	 * Get the list of letters to be posted
+	 * Get the sorted list of letters to be posted
 	 * @return lettersToBeDistributed
 	 */
 	protected List<Letter> getPostbox() {
+		lettersToBeDistributed.sort();
 		return lettersToBeDistributed;
 	}
 	
 	/**
-	 * Set the day list of letters to be posted
+	 * Set the new list of letters to be posted
 	 */
 	protected void setDailyPostbox(List<Letter> lettersOfDay) {
 		lettersToBeDistributed.addAll(lettersOfDay);
 	}
 	
 	/**
-	 * sort by inhabitant
+	 * sort lettersToBeDistributed by inhabitant
 	 * */
 	protected void sort() {
-		
+		Collections.sort(lettersToBeDistributed);
 	}
 }
 

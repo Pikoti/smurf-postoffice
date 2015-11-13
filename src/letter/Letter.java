@@ -3,130 +3,80 @@ import city.*;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am the parent class of all the letters
  */
 
-public abstract class Letter
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Inhabitant sender;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Inhabitant receiver;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected float cost;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public City city;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public Letter(){
-		super();
-	}
+public abstract class Letter implements Comparable <Letter>{
 
+	protected Inhabitant sender;
+	protected Inhabitant receiver;
+	protected double cost;
+	public City city;
+
+	public abstract void createLetter();
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * Set new cost of a letter
+	 * @param cost  the new cost setting
 	 */
 	
-	public void createLetter() {
-		// TODO implement me	
+	public void setCost(double cost) {
+		this.cost = cost; 
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * Get the cost of the letter
 	 */
 	
-	public void setCost() {
-		// TODO implement me	
+	public double getCost() {
+		return 1;	
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public float getCost() {
-		// TODO implement me
-		return 0.0f;	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * Post the letter to the city
 	 */
 	
 	public void postLetter() {
-		// TODO implement me	
+
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * True if letter is urgent
+	 * @return true if urgent
 	 */
 	
 	public boolean isUrgent() {
-		// TODO implement me
+		return false;	
+	}
+
+	/**
+	 * True if letter is a registerLetter
+	 * @return true if registered
+	 */
+
+	public boolean isRegisterLetter() {
 		return false;	
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	 * Create answer to be sent by receiver
+	 * by default do nothing
+	 * */
+	public void createAnswer() {}
+	
 
-	public boolean isRegisterLetter() {
-		// TODO implement me
-		return false;	
-	}
-
-	public void createAnswer() {
-	}
-	public void sendAnswer() {
+	/**
+	 * Send created answer to be sent by receiver
+	 * by default do nothing
+	 * */
+	public void sendAnswer() {}
+	
+	
+	/**
+	 * compare 2 letters
+	 * */
+	public int compareTo(Letter letter) {
+		return 1;
 	}
 	
 }
