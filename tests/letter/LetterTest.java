@@ -2,6 +2,8 @@ package letter;
 
 import city.City;
 import city.Inhabitant;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 public abstract class LetterTest {
 
@@ -15,5 +17,11 @@ public abstract class LetterTest {
 		schtroumpf = new Inhabitant("Schtroumpf farceur");
 	}
 	
+	public abstract Letter createLetter();
+	
+	@Test
+	public void costIsAlwaysPositive() {
+		assertTrue(createLetter().getCost() > 0);
+	}
 	
 }
