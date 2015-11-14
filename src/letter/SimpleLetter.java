@@ -4,7 +4,7 @@ import city.Inhabitant;
 
 
 /**
- * I am a simple letter with text
+ * I am a simple letter with text.
  */
 
 public class SimpleLetter extends Letter {
@@ -17,6 +17,9 @@ public class SimpleLetter extends Letter {
 		this.content = content;
 	}
 	
+	/**
+	 * Return string descripttion of <code>this</code> letter.
+	 */
 	public String getDescription () {
 		return "simple letter (" + content + ")";
 	} 

@@ -48,7 +48,7 @@ public class Main {
 
 	public static void addLettersCollected(City city, Inhabitant sender,
 			Inhabitant receiver) {
-		city.addLettersCollected(createSimpleLetter(sender, receiver));
+		city.getPostbox().addLettersCollected(createSimpleLetter(sender, receiver));
 	}
 
 	public static Letter createSimpleLetter(Inhabitant sender,

@@ -8,6 +8,7 @@ public class Account {
 
 	protected double amount;
 
+
 	public Account() {
 		this(0);
 	}
@@ -17,31 +18,28 @@ public class Account {
 	}
 
 	/**
-	 * Subtract money from <code>this<code> account
-	 * 
-	 * @param cost to subtract from amount
-	 * @return final amount of <code>this<code> account
+	 * Subtract money from <code>this<code> account.
+	 * @param cost to subtract from amount.
+	 * @return final amount of <code>this<code> account.
 	 */
 	public double debit(double cost) {
 		return amount -= cost;
 	}
 
 	/**
-	 * Add money to <code>this<code> account
-	 * 
-	 * @param profit to add to amount
-	 * @return final amount of <code>this<code> account
+	 * Add money to <code>this<code> account.
+	 * @param profit to add to amount.
+	 * @return final amount of <code>this<code> account.
 	 */
 	public double credit(double profit) {
 		return amount += profit;
 	}
 
 	/**
-	 * get amount of <code>this<code> account
-	 * 
-	 * @return final amount of <code>this<code> account
+	 * Get amount of <code>this<code> account.
+	 * @return balance of <code>this<code> account.
 	 */
-	public double balanced() {
+	public double balance() {
 		return amount;
 	}
 }

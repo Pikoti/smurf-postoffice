@@ -17,17 +17,7 @@ public class Inhabitant {
 	}
 
 	/**
-	 * Get name of <code>this<code> inhabitant
-	 * 
-	 * @return name of <code>this<code> inhabitant
-	 * */
-	public String name() {
-		return name;
-	}
-
-	/**
 	 * Get account of <code>this<code> inhabitant
-	 * 
 	 * @return account of <code>this<code> inhabitant
 	 * */
 	public Account getAccount() {
@@ -36,7 +26,6 @@ public class Inhabitant {
 
 	/**
 	 * Get name of <code>this<code> inhabitant
-	 * 
 	 * @return name of <code>this<code> inhabitant
 	 * */
 	public String getName() {
@@ -45,13 +34,16 @@ public class Inhabitant {
 
 	/**
 	 * Pay for a letter
-	 * 
 	 * @param letter to pay
 	 * */
 	public void payLetter(Letter letter) {
 		account.debit(letter.getCost());
 	}
 	
+	/**
+	 * Return the string name of the inhabitant
+	 * @return name the name of the inhabitant
+	 */
 	public String toString() {
 		return getName();
 	}
