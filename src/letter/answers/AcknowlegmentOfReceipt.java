@@ -1,5 +1,6 @@
-package letter;
+package letter.answers;
 import city.*;
+import letter.SimpleLetter;
 
 
 /**

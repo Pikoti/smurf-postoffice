@@ -2,6 +2,7 @@ package city;
 
 import org.junit.Test;
 
+import doubles.OpenCity;
 import letter.Letter;
 import letter.SimpleLetter;
 

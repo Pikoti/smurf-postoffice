@@ -66,6 +66,12 @@ public class RegisterLetter extends LetterWithAnswer
 	
 	public String getDescription () {
 		return "registered letter";
+	}
+
+	@Override
+	public void doAction() {
+		// TODO Auto-generated method stub
+		
 	} 
 	
 }

@@ -1,6 +1,9 @@
-package city;
+package doubles;
 
 import java.util.List;
+
+import city.City;
+import city.Inhabitant;
 
 public class OpenCity extends City {
 

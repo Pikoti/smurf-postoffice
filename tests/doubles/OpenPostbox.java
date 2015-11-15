@@ -1,7 +1,8 @@
-package city;
+package doubles;
 
 import java.util.List;
 
+import city.Postbox;
 import letter.Letter;
 
 public class OpenPostbox extends Postbox{

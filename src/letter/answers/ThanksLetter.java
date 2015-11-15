@@ -1,22 +1,17 @@
-package letter;
+package letter.answers;
 import city.*;
+import letter.SimpleLetter;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I am a thanks letter send after reception of money.
  */
 
 public class ThanksLetter extends SimpleLetter
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
 	public ThanksLetter(Inhabitant sender, Inhabitant receiver){
-		super(sender, receiver, "Thanks!");
+		super(sender, receiver, "Thanks for the money!");
 	}
 	
 	public String getDescription () {

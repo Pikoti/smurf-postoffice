@@ -4,9 +4,7 @@ import city.Inhabitant;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * I deal with the sending of answers
  */
 
 public abstract class LetterWithAnswer extends Letter

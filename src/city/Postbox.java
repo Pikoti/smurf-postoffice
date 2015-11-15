@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import letter.Letter;
+import letter.UrgentLetter;
 
 
 /**
@@ -42,7 +43,7 @@ public class Postbox {
 	/**
 	 * Add an urgent letter to urgentlettersCollected.
 	 */
-	public void addUrgentLettersCollected(Letter letter) {
+	public void addUrgentLettersCollected(UrgentLetter letter) {
 		urgentLettersCollected.add(letter);
 	}
 

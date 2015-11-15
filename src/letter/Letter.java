@@ -14,38 +14,47 @@ public abstract class Letter implements Comparable<Letter> {
 	public City city;
 	
 	
+	public abstract String getDescription();	
+	public abstract void doAction();
+
 	public Letter (Inhabitant sender, Inhabitant receiver) {
 		this.sender = sender;
-		this.receiver = receiver; 
+		this.receiver = receiver;
 	}
-
+	
 	/**
 	 * Set new cost of a letter.
 	 * @param cost the new cost setting.
 	 */
-	public void setCost(double cost) {
-		this.cost = cost;
+	public void setCost() {
+		this.cost = 1;
 	}
-
+	
 	/**
 	 * Get the cost of the letter cost by default= 1.
 	 */
 	public double getCost() {
-		return 1;
+		return cost;
 	}
 
 	/**
-	 * Post the letter to the city.
+	 * Add the letter to the collectedLetters of the city. 
+	 * @param letter to be collected.
+	 * @param city where the letter is posted.
+	 */
+	public void collectLetter(City city, Letter letter) {
+		city.getPostbox().addLettersCollected(letter);
+	}
+	
+	/**
+	 * Post the letter to the postbox of the city.
 	 * @param city The city where to post the letter.
 	 */
 	public void postLetter(City city) {
 		if (sender.getAccount().balance() - this.getCost() > 0) {
 			sender.payLetter(this);
-			if (this.isUrgent()) {
-				city.getPostbox().addUrgentLettersCollected(this);
-			} else {
-				city.getPostbox().addLettersCollected(this);
-			}
+			//doAction();
+			collectLetter(city,this);
 		}
 	}
 
@@ -53,7 +62,6 @@ public abstract class Letter implements Comparable<Letter> {
 	 * True if letter is urgent (by default false).
 	 * @return true if urgent.
 	 */
-
 	public boolean isUrgent() {
 		return false;
 	}
@@ -87,12 +95,6 @@ public abstract class Letter implements Comparable<Letter> {
 	public int compareTo(Letter letter) {
 		return this.receiver.getName().compareTo(letter.receiver.getName());
 	}
-	
-	/**
-	 * Method to complete toString to be implemented in subclasses.
-	 */
-	public abstract String getDescription();
-	
 	/**
 	 * Get the delivery process of a letter toString.
 	 * @return string description of letter delivery process.

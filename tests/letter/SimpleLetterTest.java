@@ -20,7 +20,7 @@ public class SimpleLetterTest extends LetterTest{
 	
 	@Test
 	public void getCostTest() {
-		Letter simpleLetter = new SimpleLetter(schtroumpf,schtroumpfette, "this is a joke!");
+		SimpleLetter simpleLetter = new SimpleLetter(schtroumpf,schtroumpfette, "this is a joke!");
 		assertEquals(1,simpleLetter.getCost(),0.01);
 	}	
 }

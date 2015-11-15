@@ -10,11 +10,19 @@ import city.Inhabitant;
 public class SimpleLetter extends Letter {
 	
 	protected TextContent content;
-	
+
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
 		super(sender, receiver);
 		TextContent content= new TextContent(text); 
 		this.content = content;
+		setCost();
+	}
+	
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver) {
+		super(sender, receiver);
+		TextContent content= new TextContent(""); 
+		this.content = content;
+		setCost();
 	}
 	
 	/**
@@ -30,6 +38,9 @@ public class SimpleLetter extends Letter {
 	 */
 	public String getDescription () {
 		return "simple letter (" + content + ")";
-	} 
+	}
+
+	@Override
+	public void doAction() {} 
 }
 

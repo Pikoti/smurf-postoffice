@@ -48,8 +48,7 @@ public class City {
 		while (it.hasNext()) {
 			Letter letter = it.next();
 			Printer.print(letter);
-			letter.createAnswer();
-			letter.sendAnswer();
+			letter.doAction();
 		}
 		postbox.clearLettersToBeDistributed();
 	}
