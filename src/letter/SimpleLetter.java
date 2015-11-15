@@ -18,7 +18,15 @@ public class SimpleLetter extends Letter {
 	}
 	
 	/**
-	 * Return string descripttion of <code>this</code> letter.
+	 * Get the content of <code>this</code>.
+	 * @return content of the simple letter.
+	 */
+	public TextContent getContent() {
+		return content;
+	}
+	
+	/**
+	 * Return string description of <code>this</code> letter.
 	 */
 	public String getDescription () {
 		return "simple letter (" + content + ")";

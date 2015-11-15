@@ -11,18 +11,17 @@ import org.junit.Before;
 
 public class CityTest {
 	
-	protected City village;
+	protected OpenCity village;
 	protected Inhabitant schtroumpfette;
 	protected Inhabitant schtroumpf;
 	protected Letter letter;
 	
 	@Before
 	public void before () {
-		village = new City("village des schtroumpfs");
+		village = new OpenCity("village des schtroumpfs");
 		schtroumpfette = new Inhabitant("Schtroumpfette");
 		schtroumpf = new Inhabitant("Schtroumpf farceur");
 		letter = new SimpleLetter(schtroumpfette,schtroumpf,"this is a joke!");
-		
 	}
 	
 	@Test
@@ -30,10 +29,5 @@ public class CityTest {
 		assertTrue(village.getInhabitants().isEmpty());
 		village.addInhabitant(schtroumpf);
 		assertTrue(village.getInhabitants().contains(schtroumpf));
-	}
-	
-	@Test
-	public void nonUrgentCollected() {
-	}
-
+	}	
 }

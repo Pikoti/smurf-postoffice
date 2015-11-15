@@ -76,37 +76,12 @@ public class Postbox {
 	}
 	
 	/**
-	 * Get an iterator to be able to iterate on lettersToBeDistributed.
+	 * Get an iterator to be able to iterate on sorted lettersToBeDistributed.
 	 * @return Iterator<Letter> the iterator.
 	 */
 	protected Iterator<Letter> getPostboxIterator() {
-		Collections.sort(lettersToBeDistributed);
+		sort();
 		return lettersToBeDistributed.iterator();
 	}
-
-	/**
-	 *For Tests, check if a letter is in the letters collected
-	 *@return true if in the list 
-	 */
-	public boolean isInLettersCollected(Letter letter) {
-		return lettersCollected.contains(letter);
-	}
-
-	/**
-	 *For Tests, check if a letter is in the urgent letters collected
-	 *@return true if in the list 
-	 */
-	public boolean isInUrgentLettersCollected(Letter letter) {
-		return urgentLettersCollected.contains(letter);
-	}
-	
-	/**
-	 *For Tests, check if a letter is in the letters to be distributed
-	 *@return true if in the list 
-	 */
-	public boolean isInLettersToBeDistributed(Letter letter) {
-		return lettersToBeDistributed.contains(letter);
-	}
-	
 }
 

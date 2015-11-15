@@ -31,14 +31,6 @@ public class City {
 	public Postbox getPostbox(){
 		return postbox;
 	}
-
-	/**
-	 * Get the list of inhabitants of the city.
-	 * @return the list of inhabitant of city.
-	 */
-	public List<Inhabitant> getInhabitants() {
-		return inhabitants;
-	}
 	
 	/**
 	 * Add an inhabitant to the city.

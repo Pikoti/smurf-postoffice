@@ -1,22 +1,26 @@
 package letter;
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
+import content.TextContent;
 import letter.SimpleLetter;
 
 public class SimpleLetterTest extends LetterTest{
 	
-	protected SimpleLetter simpleLetter;
-	
-	@Before
-	public Letter createLetter() {
-		return simpleLetter = new SimpleLetter(schtroumpfette,schtroumpf, "this is a joke!");
+	public SimpleLetter createLetter() {
+		return new SimpleLetter(schtroumpfette,schtroumpf, "this is a joke!");
 	}
 
+	
+	@Test
+	public void hasTextContent() {
+		assertTrue(createLetter().getContent() instanceof TextContent);
+	}
+	
 	@Test
 	public void getCostTest() {
+		Letter simpleLetter = new SimpleLetter(schtroumpf,schtroumpfette, "this is a joke!");
 		assertEquals(1,simpleLetter.getCost(),0.01);
 	}	
 }
