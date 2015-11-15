@@ -11,7 +11,7 @@ public abstract class Letter implements Comparable<Letter> {
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
 	protected double cost;
-	public City city;
+	protected City city;
 	
 	
 	public abstract String getDescription();	
@@ -20,6 +20,16 @@ public abstract class Letter implements Comparable<Letter> {
 	public Letter (Inhabitant sender, Inhabitant receiver) {
 		this.sender = sender;
 		this.receiver = receiver;
+		city = new City("village");
+		cost = 1;
+	}
+	
+	/**
+	 * Get the city of letter.
+	 * @return city the city of <code>this</code>
+	 */
+	public City getCity() {
+		return city;
 	}
 	
 	/**
@@ -53,7 +63,6 @@ public abstract class Letter implements Comparable<Letter> {
 	public void postLetter(City city) {
 		if (sender.getAccount().balance() - this.getCost() > 0) {
 			sender.payLetter(this);
-			//doAction();
 			collectLetter(city,this);
 		}
 	}
@@ -72,18 +81,6 @@ public abstract class Letter implements Comparable<Letter> {
 	 */
 	public boolean isRegisterLetter() {
 		return false;
-	}
-
-	/**
-	 * Create the answer to be sent by receiver (by default do nothing).
-	 */
-	public void createAnswer() {
-	}
-
-	/**
-	 * Send created answer to be sent by receiver (by default do nothing).
-	 */
-	public void sendAnswer() {
 	}
 
 	/**

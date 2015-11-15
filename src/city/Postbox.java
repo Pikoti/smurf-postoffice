@@ -20,10 +20,10 @@ public class Postbox {
 	
 	
 	public Postbox() {
-		this.capacity = 5;
-		this.lettersCollected = new ArrayList<Letter>();
+		capacity = 5;
+		lettersCollected = new ArrayList<Letter>();
 		lettersToBeDistributed = new ArrayList<Letter>();
-		this.urgentLettersCollected = new ArrayList<Letter>();
+		urgentLettersCollected = new ArrayList<Letter>();
 	}	
 	
 	/**
@@ -71,8 +71,8 @@ public class Postbox {
 		while (i++ < capacity && lettersCollected.size() > 0) {
 			sublist.add(lettersCollected.remove(0));
 		}
-		this.setDailyPostbox(urgentLettersCollected);
-		this.setDailyPostbox(sublist);
+		setDailyPostbox(urgentLettersCollected);
+		setDailyPostbox(sublist);
 		urgentLettersCollected.clear();
 	}
 	

@@ -14,7 +14,10 @@ public abstract class LetterTest {
 	public void sendingContext(){
 		village = new City("village des schtroumpfs");
 		schtroumpfette = new Inhabitant("Schtroumpfette");
-		schtroumpf = new Inhabitant("Schtroumpf farceur");
+		schtroumpf = new Inhabitant("Schtroumpf farceur");		
+		schtroumpfette.getAccount().credit(100);		
+		schtroumpf.getAccount().credit(100);
+
 	}
 	
 	public abstract Letter createLetter();

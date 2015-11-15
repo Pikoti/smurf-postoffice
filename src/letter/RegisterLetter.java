@@ -10,8 +10,7 @@ import city.Inhabitant;
  * @generated
  */
 
-public class RegisterLetter extends LetterWithAnswer
-{
+public class RegisterLetter extends Letter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

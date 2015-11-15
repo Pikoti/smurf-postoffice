@@ -5,9 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import letter.Letter;
-import letter.SimpleLetter;
-import letter.UrgentLetter;
+import letter.*;
 
 import org.junit.Before;
 import org.junit.Test;

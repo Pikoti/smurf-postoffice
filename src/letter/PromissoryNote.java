@@ -1,64 +1,56 @@
 package letter;
 
 import content.*;
-import exceptions.AmountIsNegativeException;
-import exceptions.NotEnoughMoneyException;
-import letter.answers.ThanksLetter;
 import city.*;
 
 /**
- * I am a promissoryNote I send money
+ * I am a promissoryNote I send money.
  */
 
-public class PromissoryNote extends LetterWithAnswer {
+public class PromissoryNote extends Letter{
 
 	protected DoubleContent content;
-	protected ThanksLetter answer;
 
-	public PromissoryNote(Inhabitant sender, Inhabitant receiver, Double money) throws AmountIsNegativeException, NotEnoughMoneyException {
+	public PromissoryNote(Inhabitant sender, Inhabitant receiver, Double money) {
 		super(sender, receiver);
 		//if (money < 0) throw new AmountIsNegativeException();
 		//if (sender.getAccount().balance() < (getCost() + money)) throw new NotEnoughMoneyException();  
 		DoubleContent content = new DoubleContent(money);
 		this.content = content;
+		setCost();
 	}
 
 	/**
 	 * Set the cost of the PromissoryNote.
 	 */
 	public void setCost() {
-		cost = getCost() + 0.01  * content.getContent();
+		cost =  getCost()+ (0.01  * content.getContent());
 	}
 	
 	/**
-	 * Add the money to the account of the receiver
-	 * Subtract the amount of money from the sender
+	 * Add the money to the account of the receiver.
+	 * Subtract the amount of money from the sender.
 	 */
-	public void transferMoney() {
+	public void transfertMoney() {
 		sender.getAccount().debit(content.getContent());
 		receiver.getAccount().credit(content.getContent());
 	}
 
 	/**
-	 * Create the answer that will be send back to the receiver.
-	 */
-	public void createAnswer() {
-		answer = new ThanksLetter(receiver,sender);
-	}
-	
-	/**
-	 * Send the answer that will be set back to the receiver.
+	 * Send the answer that will be sent back to the receiver.
+	 *quelque soit la m�thode employ�e BUUUUUUUUUUUUUUUUG! :-/ XD
 	 */
 	public void sendAnswer() {
-		collectLetter(city, answer);
+		//Letter answer = (Letter) new ThanksLetter(receiver,sender);
+
 	}
 	
 	/**
-	 * Create and send the answer.
+	 * Transfer money, create and send the answer.
 	 */
 	public void doAction(){
-		transferMoney();
-		createAnswer();
+		//sendAnswer();
+		transfertMoney();
 	}
 
 	/**
@@ -66,6 +58,6 @@ public class PromissoryNote extends LetterWithAnswer {
 	 */	
 	public String getDescription () {
 		return "promissory note (" + content.getContent() + ")";
-	} 
+	}
 
 }
