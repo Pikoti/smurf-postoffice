@@ -12,7 +12,7 @@ public class CityTestDouble extends City {
 	public CityTestDouble(String name) {
 		super(name);
 		this.inhabitants = new ArrayList<Inhabitant>();
-		this.postbox = new OpenPostbox();
+		this.postbox = new PostboxTestDouble();
 	}
 
 	/**

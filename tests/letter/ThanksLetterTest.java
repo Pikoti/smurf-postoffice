@@ -10,17 +10,17 @@ import letter.answer.ThanksLetter;
 
 public class ThanksLetterTest {
 
-	protected Inhabitant schtroumpfette;
-	protected Inhabitant schtroumpf;
+	protected Inhabitant sender;
+	protected Inhabitant receiver;
 	
 	@Before
 	public void before() {
-		schtroumpf = new Inhabitant("schtroumpf");
-		schtroumpfette = new Inhabitant("schtroumpfette");
+		sender = new Inhabitant("schtroumpf");
+		receiver = new Inhabitant("schtroumpfette");
 	}
 	
 	@Test
 	public void thanksNotNull() {
-		assertNotNull(new ThanksLetter(schtroumpf,schtroumpfette));
+		assertNotNull(new ThanksLetter(sender,receiver));
 	}
 }

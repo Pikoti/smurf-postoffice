@@ -1,6 +1,6 @@
 package exception;
 
 @SuppressWarnings("serial")
-public class AlreadyUrgentException extends Exception{
+public class AlreadyUrgentException extends IllegalArgumentException{
 
 }

@@ -1,24 +1,19 @@
 package letter;
 
-import city.Inhabitant;
 import city.Postbox;
 import exception.AlreadyUrgentException;
 
 /**
- * A besoin du type Generique Letter I am an urgentLetter I am delivered the
- * next day
+ * I am an urgentLetter I am delivered the next day
  */
 
-public class UrgentLetter extends Letter {
+public class UrgentLetter extends LetterDecorator {
 
-	protected Letter letter;
-
-	public UrgentLetter(Inhabitant sender, Inhabitant receiver, Letter letter) throws AlreadyUrgentException {
-		super(sender, receiver);
+	public UrgentLetter(Letter letter) throws AlreadyUrgentException {
+		super(letter);
 		if (letter.isUrgent()) {
 			throw new AlreadyUrgentException();
 		}
-		this.letter = letter;
 		cost = 2 * getCost();
 	}
 
@@ -45,7 +40,6 @@ public class UrgentLetter extends Letter {
 
 	@Override
 	public void doAction(Postbox postbox) {
-		// TODO Auto-generated method stub
-
+		this.letter.doAction(postbox);
 	}
 }

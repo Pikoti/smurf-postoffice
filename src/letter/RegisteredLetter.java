@@ -1,6 +1,5 @@
 package letter;
 
-import city.Inhabitant;
 import city.Postbox;
 
 
@@ -11,34 +10,15 @@ import city.Postbox;
  * @generated
  */
 
-public class RegisterLetter extends Letter {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Letter letter;
-	
+public class RegisteredLetter extends LetterDecorator {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public RegisterLetter(Inhabitant sender, Inhabitant receiver){
-		super(sender, receiver);
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void setCost(double cost) {
-		// TODO implement me	
+	public RegisteredLetter(Letter letter){
+		super(letter);
 	}
 	
 	/**
@@ -60,8 +40,7 @@ public class RegisterLetter extends Letter {
 	 */
 	
 	public boolean isRegistered() {
-		// TODO implement me
-		return false;	
+		return true;	
 	}
 	
 	public String getDescription () {

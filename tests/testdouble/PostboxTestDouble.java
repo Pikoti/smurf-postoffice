@@ -5,9 +5,9 @@ import java.util.List;
 import city.Postbox;
 import letter.Letter;
 
-public class OpenPostbox extends Postbox{
+public class PostboxTestDouble extends Postbox{
 
-	public OpenPostbox() {
+	public PostboxTestDouble() {
 		super();
 	}
 

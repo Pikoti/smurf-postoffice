@@ -7,6 +7,7 @@ import exception.NotEnoughMoneyException;
 import letter.Letter;
 import letter.PromissoryNote;
 import letter.SimpleLetter;
+import letter.answer.ThanksLetter;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -15,7 +16,7 @@ import testdouble.CityTestDouble;
 
 public class CityTest {
 
-	protected CityTestDouble village;
+	protected CityTestDouble city;
 	protected Postbox postbox;
 	protected Inhabitant receiver;
 	protected Inhabitant sender;
@@ -26,8 +27,8 @@ public class CityTest {
 	@Before
 	public void before() throws AmountIsNegativeException,
 			NotEnoughMoneyException {
-		village = new CityTestDouble("village des schtroumpfs");
-		postbox = village.getPostbox();
+		city = new CityTestDouble("village des schtroumpfs");
+		postbox = city.getPostbox();
 		receiver = new Inhabitant("Schtroumpfette");
 		sender = new Inhabitant("Schtroumpf farceur");
 		receiver.getAccount().credit(100.00);
@@ -38,9 +39,9 @@ public class CityTest {
 
 	@Test
 	public void addHabitantTest() {
-		assertTrue(village.getInhabitants().isEmpty());
-		village.addInhabitant(sender);
-		assertTrue(village.getInhabitants().contains(sender));
+		assertTrue(city.getInhabitants().isEmpty());
+		city.addInhabitant(sender);
+		assertTrue(city.getInhabitants().contains(sender));
 	}
 
 	@Test
@@ -48,8 +49,8 @@ public class CityTest {
 		double previousAmount = sender.getAccount().balance();
 		double expectedAmount = previousAmount - prom1.getCost() + GIFT_AMOUNT;
 		System.out.println(previousAmount + " " + prom1.getCost());
-		village.addInhabitant(sender);
-		village.addInhabitant(receiver);
+		city.addInhabitant(sender);
+		city.addInhabitant(receiver);
 		prom1.postTo(postbox);
 		postbox.sendLetter();
 		postbox.distributeLetter();
@@ -58,9 +59,9 @@ public class CityTest {
 	}
 
 	@Test
-	public void answerIsCollectedAndSent() {
-		village.addInhabitant(sender);
-		village.addInhabitant(receiver);
+	public void answerIsCollected() {
+		city.addInhabitant(sender);
+		city.addInhabitant(receiver);
 		prom1.postTo(postbox);
 		assertEquals(1, postbox.lettersCollected.size());
 
@@ -73,5 +74,6 @@ public class CityTest {
 
 		assertEquals(0, postbox.lettersToBeDistributed.size());
 		assertFalse(postbox.lettersCollected.isEmpty());
+		assertTrue(postbox.lettersCollected.get(0) instanceof ThanksLetter);
 	}
 }

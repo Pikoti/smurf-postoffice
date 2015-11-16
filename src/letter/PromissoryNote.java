@@ -3,6 +3,8 @@ package letter;
 import letter.answer.ThanksLetter;
 import content.*;
 import city.*;
+import exception.AmountIsNegativeException;
+import exception.NotEnoughMoneyException;
 
 /**
  * I am a promissoryNote I send money.
@@ -12,11 +14,10 @@ public class PromissoryNote extends Letter {
 
 	protected DoubleContent content;
 
-	public PromissoryNote(Inhabitant sender, Inhabitant receiver, Double money) {
+	public PromissoryNote(Inhabitant sender, Inhabitant receiver, Double money) throws NotEnoughMoneyException, AmountIsNegativeException {
 		super(sender, receiver);
-		// if (money < 0) throw new AmountIsNegativeException();
-		// if (sender.getAccount().balance() < (getCost() + money)) throw new
-		// NotEnoughMoneyException();
+		if (money < 0) throw new AmountIsNegativeException();
+		if (sender.getAccount().balance() < (getCost() + money)) throw new NotEnoughMoneyException();
 		this.content = new DoubleContent(money);
 		this.cost = cost + (0.01 * content.getValue());
 	}

@@ -1,6 +1,6 @@
 package exception;
 
 @SuppressWarnings("serial")
-public class AmountIsNegativeException extends Exception{
+public class AmountIsNegativeException extends IllegalArgumentException{
 
 }

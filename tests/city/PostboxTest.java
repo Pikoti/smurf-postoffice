@@ -10,7 +10,7 @@ import letter.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import testdouble.OpenPostbox;
+import testdouble.PostboxTestDouble;
 
 import exception.AlreadyUrgentException;
 
@@ -18,9 +18,9 @@ public class PostboxTest {
 
 	protected Postbox openPostbox;
 	protected List<Letter> list;
-	protected Inhabitant schtroumpf;
-	protected Inhabitant cosmoSchtroumpf;
-	protected Inhabitant schtroumpfette;
+	protected Inhabitant habitant1;
+	protected Inhabitant habitant2;
+	protected Inhabitant habitant3;
 	protected SimpleLetter simpleLetter1;
 	protected SimpleLetter simpleLetter2;
 	protected SimpleLetter simpleLetter3;
@@ -28,15 +28,15 @@ public class PostboxTest {
 
 	@Before
 	public void before() throws AlreadyUrgentException {
-		openPostbox = new OpenPostbox();
+		openPostbox = new PostboxTestDouble();
 		list = new ArrayList<Letter>();
-		schtroumpf = new Inhabitant("schtroumpf");
-		schtroumpfette = new Inhabitant("schtroumpfette");
-		cosmoSchtroumpf = new Inhabitant("cosmoSchtroumpf");
-		simpleLetter1 = new SimpleLetter(schtroumpf, schtroumpfette, "this is a joke!");
-		simpleLetter2 = new SimpleLetter(schtroumpfette, schtroumpf, "this is funny!");
-		simpleLetter3 = new SimpleLetter(cosmoSchtroumpf, schtroumpf, "I am on the moon!");
-		urgentLetter1 = new UrgentLetter(cosmoSchtroumpf, schtroumpf, simpleLetter3);
+		habitant1 = new Inhabitant("schtroumpf");
+		habitant3 = new Inhabitant("schtroumpfette");
+		habitant2 = new Inhabitant("cosmoSchtroumpf");
+		simpleLetter1 = new SimpleLetter(habitant1, habitant3, "this is a joke!");
+		simpleLetter2 = new SimpleLetter(habitant3, habitant1, "this is funny!");
+		simpleLetter3 = new SimpleLetter(habitant2, habitant1, "I am on the moon!");
+		urgentLetter1 = new UrgentLetter(simpleLetter3);
 		list.add(simpleLetter1);
 		list.add(simpleLetter2);
 		list.add(simpleLetter3);

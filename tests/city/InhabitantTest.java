@@ -8,14 +8,14 @@ import letter.SimpleLetter;
 
 public class InhabitantTest {
 
-	protected City village;
+	protected City city;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
 	protected Letter simpleLetter;
 
 	@Before
 	public void before() {
-		village = new City("village des schtroumpfs");
+		city = new City("village des schtroumpfs");
 		sender = new Inhabitant("Schtroumpfette");
 		receiver = new Inhabitant("Schtroumpf farceur");
 		simpleLetter = new SimpleLetter(sender, receiver, "this is a joke!");

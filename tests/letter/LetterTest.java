@@ -9,14 +9,14 @@ import org.junit.Test;
 
 public abstract class LetterTest {
 
-	protected City village;
+	protected City city;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
 	protected Letter letter;
 
 	@Before
 	public void sendingContext() {
-		village = new City("village des schtroumpfs");
+		city = new City("village des schtroumpfs");
 		sender = new Inhabitant("Schtroumpfette");
 		receiver = new Inhabitant("Schtroumpf farceur");
 		letter = createLetter(sender, receiver);
@@ -35,7 +35,7 @@ public abstract class LetterTest {
 	@Test
 	public void postToTest() { 
 		double expectedAmount = sender.getAccount().balance() - letter.getCost(); 
-		letter.postTo(village.getPostbox());
+		letter.postTo(city.getPostbox());
 		assertEquals(expectedAmount, sender.getAccount().balance(), 0.1);
 	}
 
@@ -43,6 +43,6 @@ public abstract class LetterTest {
 	public void postToWhenNotEnoughMoneyTest() {
 		sender.getAccount().debit(sender.getAccount().balance());
 		assertEquals(0, sender.getAccount().balance(), 0.01);
-		letter.postTo(village.getPostbox());
+		letter.postTo(city.getPostbox());
 	}
 }
