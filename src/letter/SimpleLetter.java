@@ -13,16 +13,12 @@ public class SimpleLetter extends Letter {
 
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
 		super(sender, receiver);
-		TextContent content= new TextContent(text); 
-		this.content = content;
-		setCost();
+		this.content = new TextContent(text);
+		this.cost = 1;
 	}
 	
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver) {
-		super(sender, receiver);
-		TextContent content= new TextContent(""); 
-		this.content = content;
-		setCost();
+		this(sender, receiver, "");
 	}
 	
 	/**
@@ -39,8 +35,5 @@ public class SimpleLetter extends Letter {
 	public String getDescription () {
 		return "simple letter (" + content + ")";
 	}
-
-	@Override
-	public void doAction() {} 
 }
 

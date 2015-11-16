@@ -22,6 +22,7 @@ public class Main {
 		Inhabitant loulou = new Inhabitant("loulou");
 
 		City disneyLand = new City("disney land");
+		Postbox postbox = disneyLand.getPostbox();
 
 		ArrayList<Inhabitant[]> couples = new ArrayList<Inhabitant[]>();
 		couples.add(new Inhabitant[] { pluto, mickey });
@@ -38,11 +39,11 @@ public class Main {
 		}
 
 		Printer.print("Day 1");
-		disneyLand.sendLetter();
-		disneyLand.distributeLetter();
+		postbox.sendLetter();
+		postbox.distributeLetter();
 		Printer.print("Day 2");
-		disneyLand.sendLetter();
-		disneyLand.distributeLetter();
+		postbox.sendLetter();
+		postbox.distributeLetter();
 
 	}
 

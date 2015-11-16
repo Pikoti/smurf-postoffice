@@ -3,10 +3,6 @@ package city;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.Iterator;
-
-import letter.Letter;
-
 /**
  * I am a city of inhabitants.
  */
@@ -38,25 +34,5 @@ public class City {
 	 */
 	public void addInhabitant(Inhabitant inhabitant) {
 		inhabitants.add(inhabitant);
-	}
-
-	/**
-	 * Distribute the letters of the postBox to the inhabitants.
-	 */
-	public void distributeLetter() {
-		Iterator<Letter> it = postbox.getPostboxIterator();
-		while (it.hasNext()) {
-			Letter letter = it.next();
-			Printer.print(letter);
-			letter.doAction();
-		}
-		postbox.clearLettersToBeDistributed();
-	}
-
-	/**
-	 * Send the letters for the daily delivery.
-	 */
-	public void sendLetter() {
-		postbox.sendLetter();
 	}
 }

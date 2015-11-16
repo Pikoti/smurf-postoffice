@@ -2,31 +2,31 @@ package content;
 
 
 /**
- * I am a Content double for a letter (money) 
+ * I am a Content double for a letter (money).
  */
 
 public class DoubleContent implements Content {
 	
-	protected double money;
+	protected double value;
 	
-	public DoubleContent (double money) {
-		this.money = money;
+	public DoubleContent (double value) {
+		this.value = value;
 	}
 	
 	/**
 	 * Get the amount of money (of a letter).
 	 * @return amount of money of the letter.
 	 */	
-	public double getContent() {
-		return money;	
+	public double getValue() {
+		return value;	
 	}
 	
 	/**
 	 * Set double content of a letter.
-	 * @param content to set.
+	 * @param value to set.
 	 */
-	public void setContent(Double money) {
-			this.money = money;
+	public void setValue(Double value) {
+			this.value = value;
 	}
 }
 

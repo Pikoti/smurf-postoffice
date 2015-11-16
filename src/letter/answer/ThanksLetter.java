@@ -1,4 +1,4 @@
-package letter.answers;
+package letter.answer;
 import city.*;
 import letter.SimpleLetter;
 

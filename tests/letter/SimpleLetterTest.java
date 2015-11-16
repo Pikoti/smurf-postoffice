@@ -1,26 +1,27 @@
 package letter;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import city.Inhabitant;
+
 import content.TextContent;
 import letter.SimpleLetter;
 
-public class SimpleLetterTest extends LetterTest{
-	
-	public SimpleLetter createLetter() {
-		return new SimpleLetter(schtroumpfette,schtroumpf, "this is a joke!");
+public class SimpleLetterTest extends LetterTest {
+
+	public SimpleLetter createLetter(Inhabitant sender, Inhabitant receiver) {
+		return new SimpleLetter(sender, receiver, "this is a joke!");
 	}
 
-	
 	@Test
-	public void hasTextContent() {
-		assertTrue(createLetter().getContent() instanceof TextContent);
+	public void hasTextContent() { 
+		assertTrue(((SimpleLetter)letter).getContent() instanceof TextContent);
 	}
-	
+
 	@Test
 	public void getCostTest() {
-		SimpleLetter simpleLetter = new SimpleLetter(schtroumpf,schtroumpfette, "this is a joke!");
-		assertEquals(1,simpleLetter.getCost(),0.01);
-	}	
+		assertEquals(1, letter.getCost(), 0.01);
+	}
 }

@@ -3,28 +3,46 @@ package letter;
 import city.City;
 import city.Inhabitant;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public abstract class LetterTest {
 
 	protected City village;
-	protected Inhabitant schtroumpfette;
-	protected Inhabitant schtroumpf;
-	
-	public void sendingContext(){
+	protected Inhabitant sender;
+	protected Inhabitant receiver;
+	protected Letter letter;
+
+	@Before
+	public void sendingContext() {
 		village = new City("village des schtroumpfs");
-		schtroumpfette = new Inhabitant("Schtroumpfette");
-		schtroumpf = new Inhabitant("Schtroumpf farceur");		
-		schtroumpfette.getAccount().credit(100);		
-		schtroumpf.getAccount().credit(100);
+		sender = new Inhabitant("Schtroumpfette");
+		receiver = new Inhabitant("Schtroumpf farceur");
+		letter = createLetter(sender, receiver);
+		sender.getAccount().credit(100);
+		receiver.getAccount().credit(100);
 
 	}
-	
-	public abstract Letter createLetter();
-	
+
+	public abstract Letter createLetter(Inhabitant sender, Inhabitant receiver);
+
 	@Test
 	public void costIsAlwaysPositive() {
-		assertTrue(createLetter().getCost() > 0);
+		assertTrue(letter.getCost() > 0);
 	}
-	
+
+	@Test
+	public void postToTest() { 
+		double expectedAmount = sender.getAccount().balance() - letter.getCost(); 
+		letter.postTo(village.getPostbox());
+		assertEquals(expectedAmount, sender.getAccount().balance(), 0.1);
+	}
+
+	@Test
+	public void postToWhenNotEnoughMoneyTest() {
+		sender.getAccount().debit(sender.getAccount().balance());
+		assertEquals(0, sender.getAccount().balance(), 0.01);
+		letter.postTo(village.getPostbox());
+	}
 }

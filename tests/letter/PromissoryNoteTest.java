@@ -4,15 +4,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import city.Inhabitant;
+
 public class PromissoryNoteTest extends LetterTest {
 
-	public PromissoryNote createLetter() {
-		return new PromissoryNote(schtroumpf,schtroumpfette,100.00);
+	public PromissoryNote createLetter(Inhabitant sender, Inhabitant receiver) {
+		return new PromissoryNote(sender, receiver, 100.00);
 	}
-	
+
 	@Test
 	public void costTest() {
-		assertEquals(2.00,createLetter().getCost(),0.01);
+		assertEquals(2.00, letter.getCost(), 0.01);
 	}
 
 }

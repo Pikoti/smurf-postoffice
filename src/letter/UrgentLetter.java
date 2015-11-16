@@ -1,60 +1,51 @@
 package letter;
 
-import city.City;
 import city.Inhabitant;
-import exceptions.AlreadyUrgentException;
-
+import city.Postbox;
+import exception.AlreadyUrgentException;
 
 /**
- * A besoin du type Generique Letter
- * I am an urgentLetter I am delivered the next day
+ * A besoin du type Generique Letter I am an urgentLetter I am delivered the
+ * next day
  */
 
 public class UrgentLetter extends Letter {
 
 	protected Letter letter;
 
-	public UrgentLetter(Inhabitant sender, Inhabitant receiver,Letter letter) throws AlreadyUrgentException {
+	public UrgentLetter(Inhabitant sender, Inhabitant receiver, Letter letter) throws AlreadyUrgentException {
 		super(sender, receiver);
-		if (letter.isUrgent()) throw new AlreadyUrgentException();
+		if (letter.isUrgent()) {
+			throw new AlreadyUrgentException();
+		}
 		this.letter = letter;
+		cost = 2 * getCost();
 	}
-	
+
 	/**
-	 * Set the cost of urgent letter.
-	 */
-	public void setCost() {
-		cost = 2 * getCost(); 
-	}
-	
-	/**
-	 * True if letter is urgent.
-	 * @return true if urgent.
+	 * @see Letter
 	 */
 	public boolean isUrgent() {
-		return true;	
+		return true;
 	}
-	
+
 	/**
-	 * Add the letter to the collectedLetters of the city. 
-	 * @param letter to be collected.
-	 * @param city where the urgentLetter is posted.
+	 * @see Letter
 	 */
-	public void collectLetter(City city, UrgentLetter letter) {
-		city.getPostbox().addUrgentLettersCollected(letter);
+	public void addTo(Postbox postbox) {
+		postbox.addUrgentLettersCollected(this);
 	}
-	
+
 	/**
 	 * Return string description of <code>this</code> letter.
 	 */
 	public String getDescription() {
-		return "urgent letter";	
+		return "urgent letter";
 	}
 
 	@Override
-	public void doAction() {
+	public void doAction(Postbox postbox) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
-

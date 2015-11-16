@@ -1,6 +1,7 @@
 package letter;
 
 import city.Inhabitant;
+import city.Postbox;
 
 
 /**
@@ -36,7 +37,7 @@ public class RegisterLetter extends Letter {
 	 * @ordered
 	 */
 	
-	public void setCost() {
+	public void setCost(double cost) {
 		// TODO implement me	
 	}
 	
@@ -68,7 +69,7 @@ public class RegisterLetter extends Letter {
 	}
 
 	@Override
-	public void doAction() {
+	public void doAction(Postbox postbox) {
 		// TODO Auto-generated method stub
 		
 	} 

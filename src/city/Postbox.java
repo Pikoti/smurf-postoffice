@@ -1,10 +1,6 @@
 package city;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import letter.Letter;
-import letter.UrgentLetter;
+import java.util.*;
+import letter.*;
 
 
 /**
@@ -54,11 +50,16 @@ public class Postbox {
 	protected void sort() {
 		Collections.sort(lettersToBeDistributed);
 	}
-	
+
 	/**
-	 * Clear the list of letters to be distributed.
+	 * Distribute the letters of the postBox to the inhabitants.
 	 */
-	public void clearLettersToBeDistributed() {
+	public void distributeLetter() {
+		sort();
+		for (Letter letter : lettersToBeDistributed) {
+			Printer.print(letter);
+			letter.doAction(this);
+		}
 		lettersToBeDistributed.clear();
 	}
 
@@ -74,15 +75,6 @@ public class Postbox {
 		setDailyPostbox(urgentLettersCollected);
 		setDailyPostbox(sublist);
 		urgentLettersCollected.clear();
-	}
-	
-	/**
-	 * Get an iterator to be able to iterate on sorted lettersToBeDistributed.
-	 * @return Iterator<Letter> the iterator.
-	 */
-	protected Iterator<Letter> getPostboxIterator() {
-		sort();
-		return lettersToBeDistributed.iterator();
 	}
 }
 

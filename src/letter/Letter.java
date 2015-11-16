@@ -10,36 +10,17 @@ public abstract class Letter implements Comparable<Letter> {
 
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
-	protected double cost;
-	protected City city;
-	
-	
-	public abstract String getDescription();	
-	public abstract void doAction();
+	protected double cost = 1;
 
-	public Letter (Inhabitant sender, Inhabitant receiver) {
+	public abstract String getDescription();
+
+	public void doAction(Postbox postbox) {};
+
+	public Letter(Inhabitant sender, Inhabitant receiver) {
 		this.sender = sender;
 		this.receiver = receiver;
-		city = new City("village");
-		cost = 1;
 	}
-	
-	/**
-	 * Get the city of letter.
-	 * @return city the city of <code>this</code>
-	 */
-	public City getCity() {
-		return city;
-	}
-	
-	/**
-	 * Set new cost of a letter.
-	 * @param cost the new cost setting.
-	 */
-	public void setCost() {
-		this.cost = 1;
-	}
-	
+
 	/**
 	 * Get the cost of the letter cost by default= 1.
 	 */
@@ -48,27 +29,29 @@ public abstract class Letter implements Comparable<Letter> {
 	}
 
 	/**
-	 * Add the letter to the collectedLetters of the city. 
-	 * @param letter to be collected.
-	 * @param city where the letter is posted.
+	 * Add the letter to the collectedLetters of the postbox.
+	 * 
+	 * @param postbox Postbox in which the letter is posted.
 	 */
-	public void collectLetter(City city, Letter letter) {
-		city.getPostbox().addLettersCollected(letter);
+	protected void addTo(Postbox postbox) {
+		postbox.addLettersCollected(this);
 	}
-	
+
 	/**
 	 * Post the letter to the postbox of the city.
-	 * @param city The city where to post the letter.
+	 * 
+	 * @param postbox The postbox in which to post the letter.
 	 */
-	public void postLetter(City city) {
+	public void postTo(Postbox postbox) {
 		if (sender.getAccount().balance() - this.getCost() > 0) {
 			sender.payLetter(this);
-			collectLetter(city,this);
+			this.addTo(postbox);
 		}
 	}
 
 	/**
 	 * True if letter is urgent (by default false).
+	 * 
 	 * @return true if urgent.
 	 */
 	public boolean isUrgent() {
@@ -77,14 +60,16 @@ public abstract class Letter implements Comparable<Letter> {
 
 	/**
 	 * True if letter is a registeredLetter (by default false).
+	 * 
 	 * @return true if registered.
 	 */
-	public boolean isRegisterLetter() {
+	public boolean isRegisteredLetter() {
 		return false;
 	}
 
 	/**
 	 * Compare lexicographically 2 letters for sorting.
+	 * 
 	 * @return -1 if <code>this<code> letter precedes argument letter.
 	 * @return 0 if equals.
 	 * @return 1 if <code>this<code> letter comes after argument letter.
@@ -92,11 +77,13 @@ public abstract class Letter implements Comparable<Letter> {
 	public int compareTo(Letter letter) {
 		return this.receiver.getName().compareTo(letter.receiver.getName());
 	}
+
 	/**
 	 * Get the delivery process of a letter toString.
+	 * 
 	 * @return string description of letter delivery process.
 	 */
-	public String toString () {
+	public String toString() {
 		return getDescription() + " from " + sender + " to " + receiver;
 	}
 }

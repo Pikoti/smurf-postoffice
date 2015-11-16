@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import city.Inhabitant;
-import letter.answers.ThanksLetter;
+import letter.answer.ThanksLetter;
 
 public class ThanksLetterTest {
 

@@ -1,4 +1,4 @@
-package doubles;
+package testdouble;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import city.City;
 import city.Inhabitant;
 
-public class OpenCity extends City {
+public class CityTestDouble extends City {
 
 	
-	public OpenCity(String name) {
+	public CityTestDouble(String name) {
 		super(name);
 		this.inhabitants = new ArrayList<Inhabitant>();
 		this.postbox = new OpenPostbox();
