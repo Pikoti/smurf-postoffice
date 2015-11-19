@@ -7,9 +7,9 @@ import exception.AlreadyUrgentException;
  * I am an urgentLetter I am delivered the next day
  */
 
-public class UrgentLetter extends LetterDecorator {
+public class UrgentLetter<L extends Letter> extends LetterDecorator {
 
-	public UrgentLetter(Letter letter) throws AlreadyUrgentException {
+	public UrgentLetter(L letter) throws AlreadyUrgentException {
 		super(letter);
 		if (letter.isUrgent()) {
 			throw new AlreadyUrgentException();

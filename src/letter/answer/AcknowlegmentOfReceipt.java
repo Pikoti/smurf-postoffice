@@ -16,8 +16,8 @@ public class AcknowlegmentOfReceipt extends SimpleLetter
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public AcknowlegmentOfReceipt(Inhabitant sender, Inhabitant receiver, String text){
-		super(sender, receiver, text);
+	public AcknowlegmentOfReceipt(Inhabitant sender, Inhabitant receiver){
+		super(sender, receiver, "I received your letter !" );
 	}
 	
 	public String getDescription () {

@@ -2,6 +2,9 @@ package letter;
 
 import city.City;
 import city.Inhabitant;
+import exception.NotEnoughMoneyException;
+import testdouble.InhabitantTestDouble;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -12,6 +15,7 @@ public abstract class LetterTest {
 	protected City city;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
+	protected InhabitantTestDouble receiver2;
 	protected Letter letter;
 
 	@Before
@@ -39,7 +43,7 @@ public abstract class LetterTest {
 		assertEquals(expectedAmount, sender.getAccount().balance(), 0.1);
 	}
 
-	@Test
+	@Test(expected=NotEnoughMoneyException.class)
 	public void postToWhenNotEnoughMoneyTest() {
 		sender.getAccount().debit(sender.getAccount().balance());
 		assertEquals(0, sender.getAccount().balance(), 0.01);

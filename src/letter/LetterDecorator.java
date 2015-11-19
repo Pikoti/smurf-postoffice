@@ -12,4 +12,8 @@ public abstract class LetterDecorator extends Letter {
 	public boolean isUrgent() {
 		return this.letter.isUrgent() || false;
 	}
+	
+	public boolean isRegister() {
+		return this.letter.isRegisteredLetter() || false;
+	}
 }

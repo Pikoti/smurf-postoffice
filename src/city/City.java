@@ -25,7 +25,7 @@ public class City {
 	 * @return postbox of the city.
 	 */
 	public Postbox getPostbox(){
-		return postbox;
+		return this.postbox;
 	}
 	
 	/**

@@ -16,5 +16,4 @@ public class PromissoryNoteTest extends LetterTest {
 	public void costTest() {
 		assertEquals(2.00, letter.getCost(), 0.01);
 	}
-
 }

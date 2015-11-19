@@ -1,43 +1,15 @@
 package letter;
 
 import city.Postbox;
+import letter.Letter;
+import letter.answer.AcknowlegmentOfReceipt;
 
+public class RegisteredLetter<L extends Letter> extends LetterDecorator {
 
-/**
- * <span style="font-size: 12.8px;">A besoin du type Generique LEtter</span>
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
-public class RegisteredLetter extends LetterDecorator {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public RegisteredLetter(Letter letter){
+	public RegisteredLetter(L letter){
 		super(letter);
+		this.cost = cost + 15;
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void createAnswer() {
-		// TODO implement me	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public boolean isRegistered() {
 		return true;	
@@ -49,9 +21,8 @@ public class RegisteredLetter extends LetterDecorator {
 
 	@Override
 	public void doAction(Postbox postbox) {
-		// TODO Auto-generated method stub
-		
-	} 
-	
+		Letter answer = new AcknowlegmentOfReceipt(this.receiver, this.sender);
+		answer.postTo(postbox);
+	}
 }
 
