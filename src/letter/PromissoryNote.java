@@ -10,15 +10,12 @@ import exception.NotEnoughMoneyException;
  * I am a promissoryNote I send money.
  */
 
-public class PromissoryNote extends Letter {
-
-	protected DoubleContent content;
+public class PromissoryNote extends Letter<DoubleContent> {
 
 	public PromissoryNote(Inhabitant sender, Inhabitant receiver, Double money) throws NotEnoughMoneyException, AmountIsNegativeException {
-		super(sender, receiver);
+		super(sender, receiver, new DoubleContent(money));
 		if (money < 0) throw new AmountIsNegativeException();
 		if (sender.getAccount().balance() < (getCost() + money)) throw new NotEnoughMoneyException();
-		this.content = new DoubleContent(money);
 		this.cost = cost + (0.01 * content.getValue());
 	}
 
@@ -35,7 +32,7 @@ public class PromissoryNote extends Letter {
 	 * Transfer money, create and send the answer.
 	 */
 	public void doAction(Postbox postbox) {
-		Letter answer = new ThanksLetter(receiver, sender);
+		ThanksLetter answer = new ThanksLetter(receiver, sender);
 		answer.postTo(postbox);
 		transfertMoney();
 	}

@@ -17,26 +17,26 @@ import exception.AlreadyUrgentException;
 public class PostboxTest {
 
 	protected Postbox openPostbox;
-	protected List<Letter> list;
+	protected List<Letter<?>> list;
 	protected Inhabitant habitant1;
 	protected Inhabitant habitant2;
 	protected Inhabitant habitant3;
 	protected SimpleLetter simpleLetter1;
 	protected SimpleLetter simpleLetter2;
 	protected SimpleLetter simpleLetter3;
-	protected UrgentLetter urgentLetter1;
+	protected UrgentLetter<SimpleLetter> urgentLetter1;
 
 	@Before
 	public void before() throws AlreadyUrgentException {
 		openPostbox = new PostboxTestDouble();
-		list = new ArrayList<Letter>();
+		list = new ArrayList<Letter<?>>();
 		habitant1 = new Inhabitant("schtroumpf");
 		habitant3 = new Inhabitant("schtroumpfette");
 		habitant2 = new Inhabitant("cosmoSchtroumpf");
 		simpleLetter1 = new SimpleLetter(habitant1, habitant3, "this is a joke!");
 		simpleLetter2 = new SimpleLetter(habitant3, habitant1, "this is funny!");
 		simpleLetter3 = new SimpleLetter(habitant2, habitant1, "I am on the moon!");
-		urgentLetter1 = new UrgentLetter(simpleLetter3);
+		urgentLetter1 = new UrgentLetter<SimpleLetter>(simpleLetter3);
 		list.add(simpleLetter1);
 		list.add(simpleLetter2);
 		list.add(simpleLetter3);

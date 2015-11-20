@@ -26,7 +26,7 @@ public class RegisteredLetterTest {
 		aCity.addInhabitant(sender);
 		aCity.addInhabitant(receiver);
 		rLetter = new RegisteredLetter<SimpleLetter>(new SimpleLetter(sender, receiver, "A simple letter registered"));
-		postbox = (PostboxTestDouble) aCity.getPostbox();
+		postbox = new PostboxTestDouble();
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ public class RegisteredLetterTest {
 		// We're supposing the AcknowlegmentOfReceiptLetter is sent
 		assertEquals(false ,postbox.getLettersCollected().isEmpty());
 		// Reading the description to confirm it's an acknowlegment of receipt
-		Letter l = postbox.getLettersCollected().get(0);
+		Letter<?> l = postbox.getLettersCollected().get(0);
 		assertEquals(l.getDescription(), "acknowlegment of receipt");
 	}
 

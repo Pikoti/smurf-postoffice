@@ -2,6 +2,8 @@ package city;
 
 import java.util.ArrayList;
 
+import content.TextContent;
+
 import letter.Letter;
 import letter.SimpleLetter;
 
@@ -52,7 +54,7 @@ public class Main {
 		city.getPostbox().addLettersCollected(createSimpleLetter(sender, receiver));
 	}
 
-	public static Letter createSimpleLetter(Inhabitant sender,
+	public static Letter<TextContent> createSimpleLetter(Inhabitant sender,
 			Inhabitant receiver) {
 		return new SimpleLetter(sender, receiver, "salut " + receiver + " ici "
 				+ sender + "!");

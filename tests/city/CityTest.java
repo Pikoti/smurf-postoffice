@@ -20,7 +20,7 @@ public class CityTest {
 	protected Postbox postbox;
 	protected Inhabitant receiver;
 	protected Inhabitant sender;
-	protected Letter letter;
+	protected Letter<?> letter;
 	protected PromissoryNote prom1;
 	protected final double GIFT_AMOUNT = 20.50;
 
@@ -54,8 +54,8 @@ public class CityTest {
 		prom1.postTo(postbox);
 		postbox.sendLetter();
 		postbox.distributeLetter();
-		assertEquals(expectedAmount, sender.getAccount().balance(), 0.01);
-		assertEquals(78.295, receiver.getAccount().balance(), 0.01);
+		assertEquals(expectedAmount, sender.getAccount().balance(), 0.1);
+		assertEquals(78.295, receiver.getAccount().balance(), 0.1);
 	}
 
 	@Test

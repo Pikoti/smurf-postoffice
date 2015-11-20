@@ -16,6 +16,11 @@ public class Inhabitant {
 		this.account = new Account();
 	}
 
+	public Inhabitant(String name, double balance) {
+		this(name);
+		this.account.credit(balance);
+	}
+
 	/**
 	 * Get account of <code>this<code> inhabitant
 	 * 
@@ -39,7 +44,7 @@ public class Inhabitant {
 	 * 
 	 * @param letter to pay
 	 * */
-	public void payLetter(Letter letter) {
+	public void payLetter(Letter<?> letter) {
 		account.debit(letter.getCost());
 	}
 

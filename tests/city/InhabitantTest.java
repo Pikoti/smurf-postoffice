@@ -11,7 +11,7 @@ public class InhabitantTest {
 	protected City city;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
-	protected Letter simpleLetter;
+	protected Letter<?> simpleLetter;
 
 	@Before
 	public void before() {

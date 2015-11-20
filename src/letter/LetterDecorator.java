@@ -1,19 +1,16 @@
 package letter;
 
-public abstract class LetterDecorator extends Letter {
-
-	protected Letter letter;
+public abstract class LetterDecorator<L extends Letter<?>> extends Letter<L> {
 	
-	public LetterDecorator(Letter letter) {
-		super(letter.sender, letter.receiver);
-		this.letter = letter;
+	public LetterDecorator(L letter) {
+		super(letter.sender, letter.receiver, letter);
 	}
 
 	public boolean isUrgent() {
-		return this.letter.isUrgent() || false;
+		return this.content.isUrgent() || false;
 	}
 	
 	public boolean isRegister() {
-		return this.letter.isRegisteredLetter() || false;
+		return this.content.isRegisteredLetter() || false;
 	}
 }

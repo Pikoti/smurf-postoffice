@@ -4,7 +4,7 @@ import city.Postbox;
 import letter.Letter;
 import letter.answer.AcknowlegmentOfReceipt;
 
-public class RegisteredLetter<L extends Letter> extends LetterDecorator {
+public class RegisteredLetter<L extends Letter<?>> extends LetterDecorator<L> {
 
 	public RegisteredLetter(L letter){
 		super(letter);
@@ -21,7 +21,7 @@ public class RegisteredLetter<L extends Letter> extends LetterDecorator {
 
 	@Override
 	public void doAction(Postbox postbox) {
-		Letter answer = new AcknowlegmentOfReceipt(this.receiver, this.sender);
+		AcknowlegmentOfReceipt answer = new AcknowlegmentOfReceipt(this.receiver, this.sender);
 		answer.postTo(postbox);
 	}
 }

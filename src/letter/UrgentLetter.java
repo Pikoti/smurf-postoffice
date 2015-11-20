@@ -7,7 +7,7 @@ import exception.AlreadyUrgentException;
  * I am an urgentLetter I am delivered the next day
  */
 
-public class UrgentLetter<L extends Letter> extends LetterDecorator {
+public class UrgentLetter<L extends Letter<?>> extends LetterDecorator<L> {
 
 	public UrgentLetter(L letter) throws AlreadyUrgentException {
 		super(letter);
@@ -35,11 +35,11 @@ public class UrgentLetter<L extends Letter> extends LetterDecorator {
 	 * Return string description of <code>this</code> letter.
 	 */
 	public String getDescription() {
-		return "urgent letter";
+		return "urgent letter" + this.content.getDescription();
 	}
 
 	@Override
 	public void doAction(Postbox postbox) {
-		this.letter.doAction(postbox);
+		this.content.doAction(postbox);
 	}
 }

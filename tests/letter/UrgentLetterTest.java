@@ -14,7 +14,7 @@ public class UrgentLetterTest {
 	protected CityTestDouble aCity;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
-	protected UrgentLetter<SimpleLetter> uLetter;
+	protected UrgentLetter<SimpleLetter> usLetter;
 	protected PostboxTestDouble postbox;
 	
 	@Before
@@ -24,24 +24,23 @@ public class UrgentLetterTest {
 		receiver = new Inhabitant("Receiver");
 		aCity.addInhabitant(sender);
 		aCity.addInhabitant(receiver);
-		uLetter = new UrgentLetter<SimpleLetter>(new SimpleLetter(sender, receiver, "A simple letter registered"));
-		postbox = (PostboxTestDouble) aCity.getPostbox();
+		usLetter = new UrgentLetter<SimpleLetter>(new SimpleLetter(sender, receiver, "A simple letter registered"));
+		postbox = new PostboxTestDouble();
 	}
 	
 	@Test
 	public void testGetDescription() {
-		assertEquals("urgent letter", uLetter.getDescription());
+		assertEquals("urgent letter", usLetter.getDescription());
 	}
 
 	@Test
 	public void testDoAction() {
-		this.uLetter.doAction(postbox);
-		Letter l = postbox.getLettersCollected().get(0);
-		assertEquals(l.getDescription(), "urgent letter");
+		this.usLetter.doAction(postbox);
+		assertTrue(postbox.getLettersCollected().contains(usLetter));
 	}
 
 	@Test
 	public void testIsUrgent() {
-		assertTrue(uLetter.isUrgent());
+		assertTrue(usLetter.isUrgent());
 	}
 }

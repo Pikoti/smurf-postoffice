@@ -1,32 +1,24 @@
 package letter;
 import content.TextContent;
 import city.Inhabitant;
+import exception.NotEnoughMoneyException;
 
 
 /**
  * I am a simple letter with text.
  */
 
-public class SimpleLetter extends Letter {
+public class SimpleLetter extends Letter<TextContent> {
+
 	
-	protected TextContent content;
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver) throws NotEnoughMoneyException {
+		super(sender, receiver);
+		if (sender.getAccount().balance() < getCost()) throw new NotEnoughMoneyException();
+	}
 
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
-		super(sender, receiver);
-		this.content = new TextContent(text);
+		super(sender, receiver, new TextContent(text));
 		this.cost = 1;
-	}
-	
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver) {
-		this(sender, receiver, "");
-	}
-	
-	/**
-	 * Get the content of <code>this</code>.
-	 * @return content of the simple letter.
-	 */
-	public TextContent getContent() {
-		return content;
 	}
 	
 	/**

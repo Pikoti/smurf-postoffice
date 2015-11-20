@@ -35,4 +35,19 @@ public class City {
 	public void addInhabitant(Inhabitant inhabitant) {
 		inhabitants.add(inhabitant);
 	}
+	
+	/**
+	 * Get an inhabitant of the city
+	 */
+	public Inhabitant getInhabitant(int index) {
+		return inhabitants.get(index);
+	}
+	
+	/**
+	 * Get number of inhabitants in the city
+	 * @return number of inhabitants in <code>this</code> city
+	 */
+	public int getNumberInhabitants() {
+		return inhabitants.size();
+	}
 }

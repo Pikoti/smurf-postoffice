@@ -16,10 +16,10 @@ public abstract class LetterTest {
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
 	protected InhabitantTestDouble receiver2;
-	protected Letter letter;
+	protected Letter<?> letter;
 
 	@Before
-	public void sendingContext() {
+	public void before() {
 		city = new City("village des schtroumpfs");
 		sender = new Inhabitant("Schtroumpfette");
 		receiver = new Inhabitant("Schtroumpf farceur");
@@ -29,7 +29,7 @@ public abstract class LetterTest {
 
 	}
 
-	public abstract Letter createLetter(Inhabitant sender, Inhabitant receiver);
+	public abstract Letter<?> createLetter(Inhabitant sender, Inhabitant receiver);
 
 	@Test
 	public void costIsAlwaysPositive() {
@@ -46,7 +46,7 @@ public abstract class LetterTest {
 	@Test(expected=NotEnoughMoneyException.class)
 	public void postToWhenNotEnoughMoneyTest() {
 		sender.getAccount().debit(sender.getAccount().balance());
-		assertEquals(0, sender.getAccount().balance(), 0.01);
+		assertEquals(0, sender.getAccount().balance(), 0.0);
 		letter.postTo(city.getPostbox());
 	}
 }

@@ -11,15 +11,15 @@ public class PostboxTestDouble extends Postbox{
 		super();
 	}
 
-	public List<Letter> getLettersCollected(){
+	public List<Letter<?>> getLettersCollected(){
 		return lettersCollected;
 	}
 	
-	public List<Letter> getLettersToBeDistributed(){
+	public List<Letter<?>> getLettersToBeDistributed(){
 		return lettersToBeDistributed;
 	}
 	
-	public List<Letter> getUrgentLettersCollected() {
+	public List<Letter<?>> getUrgentLettersCollected() {
 		return urgentLettersCollected;
 	}
 }
