@@ -61,7 +61,7 @@ public class Main {
 				}
 				letter.postTo(postbox);
 			}
-			Printer.print(".....................................................................................");
+			Printer.print(".................................................................");
 			Printer.print("Day " + (i + 1));
 			postbox.sendLetter();
 			postbox.distributeLetter();
@@ -71,7 +71,7 @@ public class Main {
 		while (postbox.hasLettersToBeDistributed()) {
 			postbox.distributeLetter();
 			postbox.sendLetter();
-			Printer.print(".....................................................................................\n");
+			Printer.print("................................................................\n");
 			Printer.print("Day " + (i + 1));
 			i++;
 		}
