@@ -12,7 +12,7 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	protected C content;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
-	protected double cost = 1;
+	protected double cost = 1.0;
 
 	public abstract String getDescription();
 

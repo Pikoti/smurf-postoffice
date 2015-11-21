@@ -36,8 +36,6 @@ public class PromissoryNoteTest {
 	
 	@Test
 	public void testGetDescription() {
-		System.out.println("promissory note (" + pLetter.content.getValue() + ")");
-		System.out.println(pLetter.getDescription());
 		assertEquals("promissory note (" + pLetter.content.getValue() + ")", pLetter.getDescription());
 	}
 
@@ -55,7 +53,6 @@ public class PromissoryNoteTest {
 	public void testTransfertMoney() {
 		// doAction execute the money transfert between sender and receiver
 		pLetter.doAction(postbox);
-		System.out.println(receiver.getAccount().balance());
 		// we took 1099 as value to compare cause the receiver sent an acknowlegment of receipt to the sender
 		assertEquals(1099.0, receiver.getAccount().balance(), 0.1);
 	}
