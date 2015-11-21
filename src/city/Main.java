@@ -56,9 +56,9 @@ public class Main {
 					Printer.print(letter + "is already urgent");
 				} catch(AlreadyRegisteredException e) {
 					Printer.print(letter + "is already registered");
-				}catch(AmountIsNegativeException e) {
+				} catch(AmountIsNegativeException e) {
 					Printer.print(letter.getSender() + " tried to steal money from " 
-				    + letter.getReceiver());
+				                  + letter.getReceiver());
 				}
 				letter.postTo(postbox);
 			}
