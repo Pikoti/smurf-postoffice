@@ -22,12 +22,12 @@ public class Main {
 		"charitable", "frileux", "coquet", "reveur", "admiratif", "costaud", "sale", "bavard", "patineur", 
 		"courageux", "tailleur", "sculpteur", "gene", "inquiet", "beta", "cuisinier", "patissier", "enjoue",
 		"impatient", "facteur", "magicien", "mollasson", "nature", "tambour", "cloueur", "exotique", "peintre", 
-		"mineur", "astronome", "archeologue", "maladroit", "volant", "voyageur", "meteo", "patineur", "apprenti",
-		"pecheur", "veilleur", "observateur", "attentif", "susceptible", "inattentif", "naif", "malade", "medecin",
-		"perseverant", "prudent", "ramoneur", "ingrat", "courtois", "original", "hesitant", "propositeur", "chetif",
-		"facteur", "charpentier", "cordonnier", "eleveur", "ouvrier", "meunier", "missionnaire", "imprudent", "timide",
-		"egoiste", "distributeur", "enerve", "exaspere", "reflet", "sauvage", "Schtroumpfette", "bebe", "robot", 
-		"vieux","Grand Schtroumpf", "Sassette" 
+		"mineur", "astronome", "archeologue", "maladroit", "volant", "voyageur", "meteo", "patineur",
+		"apprenti", "pecheur", "veilleur", "observateur", "attentif", "susceptible", "inattentif", "naif", "malade",
+		"medecin","perseverant", "prudent", "ramoneur", "ingrat", "courtois", "original", "hesitant", "propositeur",
+		"chetif", "facteur", "charpentier", "cordonnier", "eleveur", "ouvrier", "meunier", "missionnaire",
+		"imprudent", "timide","egoiste", "distributeur", "enerve", "exaspere", "reflet", "sauvage", "Schtroumpfette", 
+		"bebe", "robot", "vieux","Grand Schtroumpf", "Sassette" 
 	};
 	// @formatter:on
 
