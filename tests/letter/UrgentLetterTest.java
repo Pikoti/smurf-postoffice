@@ -6,58 +6,55 @@ import org.junit.Before;
 import org.junit.Test;
 
 import city.Inhabitant;
+import content.TextContent;
 import exception.AlreadyUrgentException;
-import testdouble.CityTestDouble;
-import testdouble.PostboxTestDouble;
 
-public class UrgentLetterTest {
+public class UrgentLetterTest extends LetterTest{
 
-	protected CityTestDouble aCity;
-	protected Inhabitant sender;
-	protected Inhabitant receiver;
-	protected UrgentLetter<RegisteredLetter<SimpleLetter>> usLetter;
-	protected PostboxTestDouble postbox;
-	protected SimpleLetter sLetter;
-	protected RegisteredLetter<SimpleLetter> rLetter;
+	@Override
+	public UrgentLetter<SimpleLetter> createLetter(Inhabitant sender, Inhabitant receiver) {
+		return new UrgentLetter<SimpleLetter>(new SimpleLetter(sender,receiver,"blabla"));
+	}
 	
 	@Before
 	public void before() {
-		aCity = new CityTestDouble("Test City");
-		sender = new Inhabitant("Sender");
-		receiver = new Inhabitant("Receiver");
-		aCity.addInhabitant(sender);
-		aCity.addInhabitant(receiver);
-		sender.getAccount().credit(1000.0);
-		receiver.getAccount().credit(1000.0);
-		rLetter = new RegisteredLetter<SimpleLetter>(new SimpleLetter(sender, receiver, "A simple letter registered"));
-		usLetter = new UrgentLetter<RegisteredLetter<SimpleLetter>>(rLetter);
-		postbox = new PostboxTestDouble();
-	}
-	
-	@Test
-	public void testGetDescription() {
-		assertEquals("urgent letter" + rLetter.getDescription(), usLetter.getDescription());
-	}
-
-
-	@Test
-	public void testDoAction() {
-		this.usLetter.postTo(postbox);
-		this.usLetter.doAction(postbox);
-		// Now we did the doAction, a new Letter is posted in the postbox which type is AcknowlegmentOfReceipt
-		// We select the 1st letter in the postbox ( which is the AcknowlegmentOfReceipt cause the postbox contains only non urgent letter )
-		Letter<?> l = postbox.getLettersCollected().get(0);
-		assertEquals("acknowlegment of receipt", l.getDescription());
+		super.before();
 	}
 
 	@Test
 	public void testIsUrgent() {
-		assertTrue(usLetter.isUrgent());
+		assertTrue(letter.isUrgent());
+	}
+	
+	@Test
+	public void contentOfUrgentSimpleIsText() {
+		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver);
+		UrgentLetter<SimpleLetter> letter = new UrgentLetter<SimpleLetter>(simpleLetter);
+	
+	@SuppressWarnings("unused")
+		TextContent text = letter.getContent().getContent();
 	}
 	
 	@Test(expected = AlreadyUrgentException.class)
-	public void testAlreadyUrgentLetterException() {
-		UrgentLetter<Letter<?>> letter = new UrgentLetter<Letter<?>>(usLetter);
+	public void testisUrgent() {
+		UrgentLetter<Letter<?>> aletter = new UrgentLetter<Letter<?>>(letter);
 		assertTrue(letter.isUrgent());
+		aletter.postTo(postbox);
 	}
+
+	@Test(expected=AlreadyUrgentException.class)
+	public void alreadyUrgentTest() {
+		UrgentLetter<SimpleLetter> urg = createLetter(sender,receiver);
+		UrgentLetter<UrgentLetter<SimpleLetter>> urgurg = new UrgentLetter<UrgentLetter<SimpleLetter>>(urg);
+		urgurg.postTo(postbox);
+	}
+	
+	@Test(expected=AlreadyUrgentException.class)
+	public void alreadyUrgentTest2() {
+		UrgentLetter<SimpleLetter> urg = createLetter(sender,receiver);
+		RegisteredLetter<UrgentLetter<SimpleLetter>> regurg = new RegisteredLetter<UrgentLetter<SimpleLetter>>(urg);
+		UrgentLetter<RegisteredLetter<UrgentLetter<SimpleLetter>>> urgurg = new UrgentLetter<RegisteredLetter<UrgentLetter<SimpleLetter>>>(regurg);
+		urgurg.postTo(postbox);
+	}
+	
 }

@@ -18,6 +18,8 @@ public class InhabitantTest {
 		city = new City("village des schtroumpfs");
 		sender = new Inhabitant("Schtroumpfette");
 		receiver = new Inhabitant("Schtroumpf farceur");
+		sender.getAccount().credit(1000);
+		receiver.getAccount().credit(1000);
 		simpleLetter = new SimpleLetter(sender, receiver, "this is a joke!");
 	}
 
@@ -28,9 +30,15 @@ public class InhabitantTest {
 
 	@Test
 	public void payLetterTest() {
-		sender.getAccount().credit(10);
-		assertEquals(10, sender.getAccount().balance(), 0.1);
+		assertEquals(1000, sender.getAccount().balance(),0);
 		sender.payLetter(simpleLetter);
-		assertEquals(9, sender.getAccount().balance(), 0.1);
+		assertEquals(999, sender.getAccount().balance(), 0);
+	}
+	
+	@Test
+	public void equalsTest() {
+		Object o = new Inhabitant("Schtroumpfette");
+		assertTrue(sender.equals(o));
+		assertFalse(sender.equals(receiver));
 	}
 }

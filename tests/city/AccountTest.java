@@ -27,21 +27,21 @@ public class AccountTest {
 	@Test
 	public void newAccountTest(){
 		assertNotNull(accountBlank);
-		assertTrue(accountBlank.balance() == 0);
+		assertEquals(0,accountBlank.balance(),0);
 	}
 
 	@Test
 	public void accountBasicDebitTest(){
 		assertTrue(account.balance() == fst);
 		account.debit(debit);
-		assertEquals((fst - debit),account.balance(),0.01);
+		assertEquals((fst - debit),account.balance(),0);
 	}
 	
 	@Test
 	public void accountBasicProfitTest(){
 		assertTrue(account.balance() == fst);
 		account.credit(profit);
-		assertEquals((fst + profit),account.balance(),0.01);
+		assertEquals((fst + profit),account.balance(),0);
 	}
 	
 }

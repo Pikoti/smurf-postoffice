@@ -28,5 +28,13 @@ public class DoubleContent implements Content {
 	public void setValue(Double value) {
 			this.value = value;
 	}
+
+	/**
+	 * Get description of <code>this</code> content
+	 * @return description of the content
+	 */
+	public String getDescription() {
+		return "money content" ;
+	}
 }
 

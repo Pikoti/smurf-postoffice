@@ -2,6 +2,7 @@ package letter;
 
 import city.Postbox;
 import exception.AlreadyUrgentException;
+import exception.NotEnoughMoneyException;
 
 /**
  * I am an urgentLetter I am delivered the next day
@@ -9,7 +10,7 @@ import exception.AlreadyUrgentException;
 
 public class UrgentLetter<L extends Letter<?>> extends LetterDecorator<L> {
 
-	public UrgentLetter(L letter) throws AlreadyUrgentException {
+	public UrgentLetter(L letter) throws NotEnoughMoneyException, AlreadyUrgentException {
 		super(letter);
 		if (letter.isUrgent()) {
 			throw new AlreadyUrgentException();

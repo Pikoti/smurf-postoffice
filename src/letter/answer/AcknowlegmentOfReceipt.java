@@ -4,25 +4,16 @@ import letter.SimpleLetter;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ *I am an letter sent  at reception of a letter by the receiver
  */
 
-public class AcknowlegmentOfReceipt extends SimpleLetter
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+public class AcknowlegmentOfReceipt extends SimpleLetter {
 	public AcknowlegmentOfReceipt(Inhabitant sender, Inhabitant receiver){
-		super(sender, receiver, "I received your letter !" );
+		super(sender, receiver, " I received your letter !" );
 	}
 	
 	public String getDescription () {
-		return "acknowlegment of receipt";
+		return " acknowlegment of receipt " + "(" + content.getValue() + ")";
 	}
-	
 }
 

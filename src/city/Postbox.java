@@ -4,7 +4,7 @@ import letter.*;
 
 
 /**
- * I am the nevralgic center of collection, sorting and preparation of the letters for distribution.
+ * I am the nevralgic center of collect, sort and preparation of the letters for distribution.
  */
 
 public class Postbox {
@@ -16,7 +16,7 @@ public class Postbox {
 	
 	
 	public Postbox() {
-		capacity = 5;
+		capacity = 15;
 		lettersCollected = new ArrayList<Letter<?>>();
 		lettersToBeDistributed = new ArrayList<Letter<?>>();
 		urgentLettersCollected = new ArrayList<Letter<?>>();
@@ -55,20 +55,20 @@ public class Postbox {
 	 * Distribute the letters of the postBox to the inhabitants.
 	 */
 	public void distributeLetter() {
-		//sort();
+		sort();
 		for (Letter<?> letter : lettersToBeDistributed) {
-			Printer.print(letter);
+			Printer.printMailing(letter);
 			letter.doAction(this);
 		}
-		lettersToBeDistributed.clear();
 	}
 
 	/**
-	 * Send the letters to the daily postbox for delivery.
+	 * Send the letters to the daily postbox for the new day delivery.
 	 */
 	public void sendLetter() {
 		int i = 0;
 		ArrayList<Letter<?>> sublist = new ArrayList<Letter<?>>();
+		receiveLetter();
 		while (i++ < capacity && lettersCollected.size() > 0) {
 			sublist.add(lettersCollected.remove(0));
 		}
@@ -78,7 +78,20 @@ public class Postbox {
 	}
 
 	/**
-	 * Tells if there are letters to be distibuted
+	 * Print the reception of the letters,
+	 *  clear (previous day) letters to be distributed 
+	 */
+	public void receiveLetter() {
+		sort();
+		for (Letter<?> letter : lettersToBeDistributed) {
+			Printer.printReception(letter);
+		}
+		lettersToBeDistributed.clear();
+	}
+	
+	
+	/**
+	 * Tells if there are letters to be distributed
 	 * @return true if there are letters to be distributed
 	 */
 	public boolean hasLettersToBeDistributed() {
@@ -86,15 +99,26 @@ public class Postbox {
 	}
 	
 	/**
-	 * Tells if there hhow many letters need to be distibuted
+	 * Tells if there how many letters need to be distributed
 	 * @return number of letters to be distributed
 	 */
 	public int numberOfLettersToBeDistributed() {
 		return lettersToBeDistributed.size();
 	}
 	
+	/**
+	 * Tells if there how many non letters are collected
+	 * @return number of letters collected
+	 */	
 	public int numberOfLettersCollected() {
 		return lettersCollected.size();
+	}
+	/**
+	 * Tells if there how many non letters are collected
+	 * @return number of letters collected
+	 */	
+	public int numberOfUrgentLettersCollected() {
+		return urgentLettersCollected.size();
 	}
 }
 

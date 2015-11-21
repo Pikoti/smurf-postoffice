@@ -11,12 +11,7 @@ public class InhabitantTestDouble extends Inhabitant {
 		this.numberOfLetterSent = 0;
 	}
 	
-	public void incrementNbLetterSent() {
-		this.numberOfLetterSent++;
-	}
-	
 	public int getNbLetterSent() {
 		return this.numberOfLetterSent;
 	}
-
 }

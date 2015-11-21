@@ -1,9 +1,9 @@
 package letter;
 
 import content.Content;
+import exception.AmountIsNegativeException;
 import exception.NotEnoughMoneyException;
 import city.*;
-import exception.AmountIsNegativeException;
 
 /**
  * I am the parent class of all the letters.
@@ -20,9 +20,10 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 
 	public void doAction(Postbox postbox) {}
 
-	public Letter(Inhabitant sender, Inhabitant receiver) {
+	public Letter(Inhabitant sender, Inhabitant receiver) throws NotEnoughMoneyException {
 		this.sender = sender;
 		this.receiver = receiver;
+		if (sender.getAccount().balance() < getCost()) throw new NotEnoughMoneyException();
 	}
 
 	public Letter(Inhabitant sender, Inhabitant receiver, C content) {
@@ -30,6 +31,22 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 		this.content = content;
 	}
 
+	/**
+	 * Get the sender of <code>this</code> letter.
+	 * @return sender of <code>this</code> letter.
+	 */
+	public Inhabitant getSender() {
+		return sender;
+	}
+	
+	/**
+	 * Get the sender of <code>this</code> letter.
+	 * @return sender of <code>this</code> letter.
+	 */
+	public Inhabitant getReceiver() {
+		return receiver;
+	}
+	
 	/**
 	 * Get the content of <code>this</code> letter.
 	 * @return content of the letter.
@@ -47,13 +64,13 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	}
 
 	/**
-	 * Get the cost of the letter cost by default= 1.
-	 */
-	public double getCost() throws AmountIsNegativeException {
-		if( cost < 0 )
-			throw new AmountIsNegativeException();
-		return cost;
-	}
+     * Get the cost of the letter cost by default= 1.
+     */
+    public double getCost() throws AmountIsNegativeException {
+        if( cost < 0 )
+            throw new AmountIsNegativeException();
+        return cost;
+    }
 
 	/**
 	 * Add the letter to the collectedLetters of the postbox.
@@ -69,13 +86,11 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	 * 
 	 * @param postbox The postbox in which to post the letter.
 	 */
-	public void postTo(Postbox postbox) throws NotEnoughMoneyException {
+	public void postTo(Postbox postbox) {
 		if (sender.getAccount().balance() - this.getCost() > 0) {
 			sender.payLetter(this);
 			this.addTo(postbox);
 		}
-		else
-			throw new NotEnoughMoneyException();
 	}
 
 	/**
@@ -113,6 +128,6 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	 * @return string description of letter delivery process.
 	 */
 	public String toString() {
-		return getDescription() + " from " + sender + " to " + receiver;
+		return getDescription();
 	}
 }

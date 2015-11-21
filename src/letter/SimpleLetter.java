@@ -11,20 +11,21 @@ import exception.NotEnoughMoneyException;
 public class SimpleLetter extends Letter<TextContent> {
 
 	
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver){
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver) throws NotEnoughMoneyException {
 		super(sender, receiver);
 	}
 
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) throws NotEnoughMoneyException {
 		super(sender, receiver, new TextContent(text));
 		this.cost = 1;
 	}
 	
 	/**
 	 * Return string description of <code>this</code> letter.
+	 * @return string of description
 	 */
 	public String getDescription () {
-		return "simple letter (" + content + ")";
+		return " simple letter (" + content.getValue() + ")";
 	}
 }
 

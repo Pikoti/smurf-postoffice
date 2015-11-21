@@ -1,17 +1,22 @@
 package letter;
 
 import city.Postbox;
+import exception.AlreadyRegisteredException;
+import exception.NotEnoughMoneyException;
 import letter.Letter;
 import letter.answer.AcknowlegmentOfReceipt;
 
 public class RegisteredLetter<L extends Letter<?>> extends LetterDecorator<L> {
 
-	public RegisteredLetter(L letter){
+	public RegisteredLetter(L letter) throws NotEnoughMoneyException, AlreadyRegisteredException {
 		super(letter);
-		this.cost = cost + 15;
+		this.cost = cost + 15.0;
+		if (letter.isRegisteredLetter()) {
+			throw new AlreadyRegisteredException();
+		}
 	}
 	
-	public boolean isRegistered() {
+	public boolean isRegisteredLetter() {
 		return true;	
 	}
 	

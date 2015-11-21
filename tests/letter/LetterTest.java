@@ -1,10 +1,11 @@
 package letter;
 
-import city.City;
 import city.Inhabitant;
-import exception.AmountIsNegativeException;
 import exception.NotEnoughMoneyException;
+import testdouble.CityTestDouble;
 import testdouble.InhabitantTestDouble;
+import testdouble.PostboxTestDouble;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -12,46 +13,46 @@ import org.junit.Test;
 
 public abstract class LetterTest {
 
-	protected City city;
-	protected Inhabitant sender;
-	protected Inhabitant receiver;
-	protected InhabitantTestDouble receiver2;
+	protected CityTestDouble city;
+	protected PostboxTestDouble postbox;
+	protected InhabitantTestDouble sender;
+	protected InhabitantTestDouble receiver;
 	protected Letter<?> letter;
+
+
 	
 	@Before
-	public void before() {
-		city = new City("village des schtroumpfs");
-		sender = new Inhabitant("Schtroumpfette");
-		receiver = new Inhabitant("Schtroumpf farceur");
+	public void before() throws NotEnoughMoneyException{
+		city = new CityTestDouble("village des schtroumpfs");
+		postbox = new PostboxTestDouble();
+		sender = new InhabitantTestDouble("Schtroumpfette");
+		receiver = new InhabitantTestDouble("Schtroumpf farceur");
+		sender.getAccount().credit(1000);
+		receiver.getAccount().credit(1000);
+		city.addInhabitant(sender);
+		city.addInhabitant(receiver);
 		letter = createLetter(sender, receiver);
-		sender.getAccount().credit(100);
-		receiver.getAccount().credit(100);
-
 	}
-
+	
 	public abstract Letter<?> createLetter(Inhabitant sender, Inhabitant receiver);
 
 	@Test
 	public void costIsAlwaysPositive() {
 		assertTrue(letter.getCost() > 0);
 	}
-	
-	@Test(expected = AmountIsNegativeException.class)
-	public void costIsNegativeException() {
-		PromissoryNote negativeLetter = new PromissoryNote(sender, receiver, -500.0);
-		negativeLetter.getCost();
-	}
 
 	@Test
 	public void postToTest() { 
 		double expectedAmount = sender.getAccount().balance() - letter.getCost(); 
 		letter.postTo(city.getPostbox());
-		assertEquals(expectedAmount, sender.getAccount().balance(), 0.1);
+		assertEquals(expectedAmount, sender.getAccount().balance(), 0);
 	}
 
-	@Test(expected = NotEnoughMoneyException.class)
-	public void postToWhenNotEnoughMoneyTest() {
+	@Test(expected=NotEnoughMoneyException.class)
+	public void postToWhenNotEnoughMoneyTest1() {
 		sender.getAccount().debit(sender.getAccount().balance());
-		letter.postTo(city.getPostbox());
+		Letter<?> letter2 = createLetter(sender, receiver);
+		assertEquals(0, sender.getAccount().balance(), 0);
+		letter2.postTo(city.getPostbox());
 	}
 }

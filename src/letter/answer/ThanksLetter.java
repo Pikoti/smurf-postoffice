@@ -14,7 +14,7 @@ public class ThanksLetter extends SimpleLetter {
 	}
 	
 	public String getDescription () {
-		return "thanks letter";
+		return "thanks letter (" + content.getValue() + ")";
 	}
 }
 

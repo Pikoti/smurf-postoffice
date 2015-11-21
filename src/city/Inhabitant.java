@@ -56,4 +56,12 @@ public class Inhabitant {
 	public String toString() {
 		return getName();
 	}
+	
+	/**
+	 * Equals for Inhabitant
+	 * @return true if same inhabitant
+	 */
+	public boolean equals(Object o) {
+		return (o instanceof Inhabitant) && ((Inhabitant) o).getName().equals(this.getName());
+	}
 }

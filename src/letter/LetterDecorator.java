@@ -1,8 +1,10 @@
 package letter;
 
+import exception.NotEnoughMoneyException;
+
 public abstract class LetterDecorator<L extends Letter<?>> extends Letter<L> {
 	
-	public LetterDecorator(L letter) {
+	public LetterDecorator(L letter) throws NotEnoughMoneyException {
 		super(letter.sender, letter.receiver, letter);
 	}
 
@@ -10,7 +12,7 @@ public abstract class LetterDecorator<L extends Letter<?>> extends Letter<L> {
 		return this.content.isUrgent() || false;
 	}
 	
-	public boolean isRegister() {
+	public boolean isRegisteredLetter() {
 		return this.content.isRegisteredLetter() || false;
 	}
 }

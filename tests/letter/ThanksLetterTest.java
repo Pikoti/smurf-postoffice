@@ -8,15 +8,16 @@ import org.junit.Test;
 import city.Inhabitant;
 import letter.answer.ThanksLetter;
 
-public class ThanksLetterTest {
+public class ThanksLetterTest extends LetterTest {
 
-	protected Inhabitant sender;
-	protected Inhabitant receiver;
+	@Override
+	public ThanksLetter createLetter(Inhabitant sender, Inhabitant receiver) {
+		return new ThanksLetter(sender,receiver);
+	}
 	
 	@Before
 	public void before() {
-		sender = new Inhabitant("schtroumpf");
-		receiver = new Inhabitant("schtroumpfette");
+		super.before();
 	}
 	
 	@Test
