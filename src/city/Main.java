@@ -57,7 +57,8 @@ public class Main {
 				} catch(AlreadyRegisteredException e) {
 					Printer.print(letter + "is already registered");
 				}catch(AmountIsNegativeException e) {
-					Printer.print(letter.getSender() + " tried to steal money from " + letter.getReceiver());
+					Printer.print(letter.getSender() + " tried to steal money from " 
+				    + letter.getReceiver());
 				}
 				letter.postTo(postbox);
 			}
