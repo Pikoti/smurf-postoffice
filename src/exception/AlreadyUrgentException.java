@@ -1,6 +1,7 @@
 package exception;
 
-@SuppressWarnings("serial")
 public class AlreadyUrgentException extends IllegalArgumentException{
+
+	private static final long serialVersionUID = 1L;
 
 }

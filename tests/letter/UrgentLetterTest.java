@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import city.Inhabitant;
+import exception.AlreadyUrgentException;
 import testdouble.CityTestDouble;
 import testdouble.PostboxTestDouble;
 
@@ -52,5 +53,11 @@ public class UrgentLetterTest {
 	@Test
 	public void testIsUrgent() {
 		assertTrue(usLetter.isUrgent());
+	}
+	
+	@Test(expected = AlreadyUrgentException.class)
+	public void testAlreadyUrgentLetterException() {
+		UrgentLetter<Letter<?>> letter = new UrgentLetter<Letter<?>>(usLetter);
+		assertTrue(letter.isUrgent());
 	}
 }

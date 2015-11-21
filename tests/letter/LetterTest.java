@@ -2,9 +2,9 @@ package letter;
 
 import city.City;
 import city.Inhabitant;
+import exception.AmountIsNegativeException;
 import exception.NotEnoughMoneyException;
 import testdouble.InhabitantTestDouble;
-
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -17,7 +17,7 @@ public abstract class LetterTest {
 	protected Inhabitant receiver;
 	protected InhabitantTestDouble receiver2;
 	protected Letter<?> letter;
-
+	
 	@Before
 	public void before() {
 		city = new City("village des schtroumpfs");
@@ -35,6 +35,12 @@ public abstract class LetterTest {
 	public void costIsAlwaysPositive() {
 		assertTrue(letter.getCost() > 0);
 	}
+	
+	@Test(expected = AmountIsNegativeException.class)
+	public void costIsNegativeException() {
+		PromissoryNote negativeLetter = new PromissoryNote(sender, receiver, -500.0);
+		negativeLetter.getCost();
+	}
 
 	@Test
 	public void postToTest() { 
@@ -43,10 +49,9 @@ public abstract class LetterTest {
 		assertEquals(expectedAmount, sender.getAccount().balance(), 0.1);
 	}
 
-	@Test(expected=NotEnoughMoneyException.class)
+	@Test(expected = NotEnoughMoneyException.class)
 	public void postToWhenNotEnoughMoneyTest() {
 		sender.getAccount().debit(sender.getAccount().balance());
-		assertEquals(0, sender.getAccount().balance(), 0.0);
 		letter.postTo(city.getPostbox());
 	}
 }

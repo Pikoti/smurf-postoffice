@@ -24,4 +24,10 @@ public class SimpleLetterTest extends LetterTest {
 	public void getCostTest() {
 		assertEquals(1, letter.getCost(), 0.01);
 	}
+	
+	@Test
+	public void testDescription() {
+		SimpleLetter l = new SimpleLetter(sender, receiver, "this is a joke!");
+		assertEquals( "simple letter (" + l.content + ")", l.getDescription());
+	}
 }

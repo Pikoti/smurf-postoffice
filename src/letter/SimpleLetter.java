@@ -11,9 +11,8 @@ import exception.NotEnoughMoneyException;
 public class SimpleLetter extends Letter<TextContent> {
 
 	
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver) throws NotEnoughMoneyException {
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver){
 		super(sender, receiver);
-		if (sender.getAccount().balance() < getCost()) throw new NotEnoughMoneyException();
 	}
 
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {

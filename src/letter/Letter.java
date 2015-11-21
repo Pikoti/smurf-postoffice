@@ -1,7 +1,9 @@
 package letter;
 
 import content.Content;
+import exception.NotEnoughMoneyException;
 import city.*;
+import exception.AmountIsNegativeException;
 
 /**
  * I am the parent class of all the letters.
@@ -47,7 +49,9 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	/**
 	 * Get the cost of the letter cost by default= 1.
 	 */
-	public double getCost() {
+	public double getCost() throws AmountIsNegativeException {
+		if( cost < 0 )
+			throw new AmountIsNegativeException();
 		return cost;
 	}
 
@@ -65,11 +69,13 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	 * 
 	 * @param postbox The postbox in which to post the letter.
 	 */
-	public void postTo(Postbox postbox) {
+	public void postTo(Postbox postbox) throws NotEnoughMoneyException {
 		if (sender.getAccount().balance() - this.getCost() > 0) {
 			sender.payLetter(this);
 			this.addTo(postbox);
 		}
+		else
+			throw new NotEnoughMoneyException();
 	}
 
 	/**
