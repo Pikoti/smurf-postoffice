@@ -15,17 +15,19 @@ public class Main {
 	
 	// @formatter:off
 	private static String[] names = { 
-		"bricoleur", "arrogant", "chancard", "a  lunettes", "boudeur", "patient", "calme", "volant", "fonceur", "gourmand", 
-		"habile", "musicien", "grognon", "poete", "paysan", "prudent", "boulanger", "paresseux", "pretentieux", "amoureux", 
-		"distrait", "forgeron", "menuisier", "bucheron", "plombier", "farceur", "penseur", "mefiant", "batailleur", "peureux", 
-		"colerique", "charitable", "frileux", "coquet", "reveur", "admiratif", "costaud", "sale", "bavard", "patineur", 
-		"courageux", "tailleur", "sculpteur", "gene", "inquiet", "beta", "cuisinier", "patissier", "enjoue", "impatient", 
-		"facteur", "magicien", "mollasson", "nature", "tambour", "cloueur", "exotique", "peintre", "mineur", "astronome", 
-		"archeologue", "maladroit", "volant", "voyageur", "meteo", "patineur", "apprenti", "pecheur", "veilleur", 
-		"observateur", "attentif", "susceptible", "inattentif", "naif", "malade", "medecin", "perseverant", "prudent", 
-		"ramoneur", "ingrat", "courtois", "original", "hesitant", "propositeur", "chetif", "facteur", "charpentier", 
-		"cordonnier", "eleveur", "ouvrier", "meunier", "missionnaire", "imprudent", "timide", "egoiste", "distributeur", 
-		"enerve", "exaspere", "reflet", "sauvage", "Schtroumpfette", "bebe", "robot", "vieux", "Grand Schtroumpf", "Sassette" 
+		"bricoleur", "arrogant", "chancard", "a lunettes", "boudeur", "patient", "calme", "volant",
+		"fonceur", "gourmand", "habile", "musicien", "grognon", "poete", "paysan", "prudent", 
+		"boulanger", "paresseux", "pretentieux", "amoureux", "distrait", "forgeron", "menuisier",
+		"bucheron", "plombier", "farceur", "penseur", "mefiant", "batailleur", "peureux", "colerique",
+		"charitable", "frileux", "coquet", "reveur", "admiratif", "costaud", "sale", "bavard", "patineur", 
+		"courageux", "tailleur", "sculpteur", "gene", "inquiet", "beta", "cuisinier", "patissier", "enjoue",
+		"impatient", "facteur", "magicien", "mollasson", "nature", "tambour", "cloueur", "exotique", "peintre", 
+		"mineur", "astronome", "archeologue", "maladroit", "volant", "voyageur", "meteo", "patineur", "apprenti",
+		"pecheur", "veilleur", "observateur", "attentif", "susceptible", "inattentif", "naif", "malade", "medecin",
+		"perseverant", "prudent", "ramoneur", "ingrat", "courtois", "original", "hesitant", "propositeur", "chetif",
+		"facteur", "charpentier", "cordonnier", "eleveur", "ouvrier", "meunier", "missionnaire", "imprudent", "timide",
+		"egoiste", "distributeur", "enerve", "exaspere", "reflet", "sauvage", "Schtroumpfette", "bebe", "robot", 
+		"vieux","Grand Schtroumpf", "Sassette" 
 	};
 	// @formatter:on
 
