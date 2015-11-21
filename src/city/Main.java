@@ -76,9 +76,6 @@ public class Main {
 			Printer.print("Day " + (i + 1));
 			i++;
 		}
-		i++;
-		postbox.sendLetter();
-		postbox.distributeLetter();
 	}
 
 	public static Inhabitant getRandomInhabitant() {
