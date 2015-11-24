@@ -39,12 +39,17 @@ public class Main {
 		int i, j, nLetters;
 		city = new City("village des Schtroumpfs");
 		Postbox postbox = city.getPostbox();
-
-		for (i = 0; i < names.length; i++) {
+		
+		Printer.print("Welcome to the village of schtroumpfs!");
+		
+		for (i = 0; i < names.length - 6; i++) {
 			String name = "Schtroumpf " + names[i];
 			double balance = 1000 * (rn.nextInt(5) + 1);
 			city.addInhabitant(new Inhabitant(name, balance));
 		}
+		
+		Printer.print("There are " + city.getNumberInhabitants() +" schtroumpfs in the village!\n");
+		
 		for (i = 0; i < 6; i++) {
 			nLetters = rn.nextInt(70);
 			for (j = 0; j < nLetters; j++) {

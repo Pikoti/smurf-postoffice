@@ -89,7 +89,6 @@ public class Postbox {
 		lettersToBeDistributed.clear();
 	}
 	
-	
 	/**
 	 * Tells if there are letters to be distributed
 	 * @return true if there are letters to be distributed
@@ -113,6 +112,7 @@ public class Postbox {
 	public int numberOfLettersCollected() {
 		return lettersCollected.size();
 	}
+	
 	/**
 	 * Tells if there how many non letters are collected
 	 * @return number of letters collected

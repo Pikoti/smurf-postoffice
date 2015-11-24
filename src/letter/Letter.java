@@ -1,7 +1,6 @@
 package letter;
 
 import content.Content;
-import exception.AmountIsNegativeException;
 import exception.NotEnoughMoneyException;
 import city.*;
 
@@ -66,9 +65,7 @@ public abstract class Letter<C extends Content> implements Comparable<Letter<?>>
 	/**
      * Get the cost of the letter cost by default= 1.
      */
-    public double getCost() throws AmountIsNegativeException {
-        if( cost < 0 )
-            throw new AmountIsNegativeException();
+    public double getCost() {
         return cost;
     }
 

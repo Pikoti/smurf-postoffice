@@ -2,7 +2,6 @@ package letter;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import city.Inhabitant;
@@ -13,11 +12,6 @@ import letter.answer.ThanksLetter;
 public class PromissoryNoteTest extends LetterTest{
 	
 	protected final double GIFT_AMOUNT = 100;
-	
-	@Before
-	public void before() {
-		super.before();
-	}
 
 	public PromissoryNote createLetter(Inhabitant sender, Inhabitant receiver) {
 		return new PromissoryNote(sender, receiver, GIFT_AMOUNT);

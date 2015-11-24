@@ -2,7 +2,6 @@ package letter;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import city.Inhabitant;
@@ -14,11 +13,6 @@ public class UrgentLetterTest extends LetterTest{
 	@Override
 	public UrgentLetter<SimpleLetter> createLetter(Inhabitant sender, Inhabitant receiver) {
 		return new UrgentLetter<SimpleLetter>(new SimpleLetter(sender,receiver,"blabla"));
-	}
-	
-	@Before
-	public void before() {
-		super.before();
 	}
 
 	@Test

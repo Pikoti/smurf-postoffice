@@ -2,19 +2,12 @@ package letter;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 import city.Inhabitant;
 import exception.AlreadyRegisteredException;
 import letter.answer.AcknowlegmentOfReceipt;
 
 public class RegisteredLetterTest extends LetterTest{
-	
-	
-	@Before
-	public void before() {
-		super.before();
-	}
 
 	@Override
 	public RegisteredLetter<SimpleLetter> createLetter(Inhabitant sender, Inhabitant receiver) {
